@@ -171,6 +171,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\GetList.cshtml" />
+    <Content Include="Views\Category\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -188,6 +190,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcBootcamp.BLL\MvcBootcamp.BLL.csproj">
+      <Project>{3c4216c3-b110-4023-b5fe-35f046e6b215}</Project>
+      <Name>MvcBootcamp.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcBootcamp.DAL\MvcBootcamp.DAL.csproj">
+      <Project>{0032c83a-5152-42ff-ac37-397702c65d30}</Project>
+      <Name>MvcBootcamp.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcBootcamp.Entities\MvcBootcamp.Entities.csproj">
+      <Project>{3abb4779-af2e-4b85-81a6-b0a598fc61a4}</Project>
+      <Name>MvcBootcamp.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,44 @@
+﻿@using MvcBootcamp.Entities.Concrete
+@model List<Category>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List Of Category</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="margin:20px 20px 0 20px;">
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Kategori Adı</th>
+                <th>Açıklama</th>
+                <th>Durum</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.Id</th>
+                    <th>@item.Name</th>
+                    <th>@item.Description</th>
+                    <th>@item.Status</th>
+                </tr>
+
+            }
+
+
+        </table>
+
+        <a href="/Category/Add" class="btn btn-primary"> New Category</a>
+
+    </div>
+</body>
+</html>
