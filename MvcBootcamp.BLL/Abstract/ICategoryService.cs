@@ -10,5 +10,6 @@ namespace MvcBootcamp.BLL.Abstract
     public interface ICategoryService
     {
         List<Category> GetList();
+        void Add(Category category);
     }
 }

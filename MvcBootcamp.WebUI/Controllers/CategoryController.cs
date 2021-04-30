@@ -1,5 +1,6 @@
 ﻿using MvcBootcamp.BLL.Abstract;
 using MvcBootcamp.BLL.Concrete;
+using MvcBootcamp.BLL.DependencyResolvers.Ninject;
 using MvcBootcamp.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -13,31 +14,32 @@ namespace MvcBootcamp.WebUI.Controllers
     {
         // GET: Category
 
-        //CategoryManager categoryManager = new CategoryManager();
-
+        public CategoryController()
+        {
+            _categoryService = InstanceFactory.GetInstance<ICategoryService>();
+        }
+        private ICategoryService _categoryService;
         public ActionResult Index()
         {
-
             return View();
         }
 
         public ActionResult GetList()
         {
-             //var categorylist = categoryManager.GetList();
-            return View(/*categorylist*/);
+            return View(_categoryService.GetList());
         }
 
         [HttpGet]
         public ActionResult Add()
         {
-            return View(); 
+            return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Add(Category category)
-        //{
-        //    //categoryManager.Add(category);
-        //    return RedirectToAction("GetList");
-        //}
+        [HttpPost]
+        public ActionResult Add(Category category)
+        {
+            _categoryService.Add(category);
+            return RedirectToAction("GetList");
+        }
     }
 }

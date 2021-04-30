@@ -17,6 +17,11 @@ namespace MvcBootcamp.BLL.Concrete
             _categoryDal = categoryDal;
         }
 
+        public void Add(Category category)
+        {
+            _categoryDal.Add(category);
+        }
+
         public List<Category> GetList()
         {
             return _categoryDal.Getlist();
