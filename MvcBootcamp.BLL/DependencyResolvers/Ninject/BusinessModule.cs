@@ -19,6 +19,17 @@ namespace MvcBootcamp.BLL.DependencyResolvers.Ninject
             Bind<ICategoryService>().To<CategoryManager>().InSingletonScope();
             Bind<ICategoryDal>().To<CategoryDal>().InSingletonScope();
 
+            Bind<IAuthorService>().To<AuthorManager>().InSingletonScope();
+            Bind<IAuthorDal>().To<AuthorDal>().InSingletonScope();
+
+            Bind<IContactFormService>().To<ContactFormManager>().InSingletonScope();
+            Bind<IContactFormDal>().To<ContactFormDal>().InSingletonScope();
+
+            Bind<IContentService>().To<ContentManager>().InSingletonScope();
+            Bind<IContentDal>().To<ContentDal>().InSingletonScope();
+
+            Bind<IHeadlineService>().To<HeadlineManager>().InSingletonScope();
+            Bind<IHeadlineDal>().To<HeadlineDal>().InSingletonScope();
         }
     }
 }
