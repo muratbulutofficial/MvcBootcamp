@@ -25,7 +25,7 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
             modelBuilder.Entity<Author>().Property(c => c.Password).HasMaxLength(50).IsRequired();
 
             modelBuilder.Entity<Category>().Property(c => c.Name).HasMaxLength(30).IsRequired();
-            modelBuilder.Entity<Category>().Property(c => c.Description).HasMaxLength(100).IsRequired();
+            modelBuilder.Entity<Category>().Property(c => c.Description).HasMaxLength(100).IsOptional();
 
             modelBuilder.Entity<ContactForm>().Property(c => c.Name).HasMaxLength(50).IsRequired();
             modelBuilder.Entity<ContactForm>().Property(c => c.EMail).HasMaxLength(100).IsRequired();

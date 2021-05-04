@@ -1,4 +1,6 @@
 ﻿using MvcBootcamp.BLL.Abstract;
+using MvcBootcamp.BLL.Utilities;
+using MvcBootcamp.BLL.ValidationRules.FluentValidation;
 using MvcBootcamp.DAL.Concrete.EntityFramework;
 using MvcBootcamp.Entities.Concrete;
 using System;
@@ -11,14 +13,15 @@ namespace MvcBootcamp.BLL.Concrete
 {
     public class CategoryManager : ICategoryService
     {
-        private CategoryDal _categoryDal;
-        public CategoryManager(CategoryDal categoryDal)
+        private EfCategoryDal _categoryDal;
+        public CategoryManager(EfCategoryDal categoryDal)
         {
             _categoryDal = categoryDal;
         }
 
         public void Add(Category category)
         {
+            ValidationTool.FluentValidate(new CategoryValidator(),category);
             _categoryDal.Add(category);
         }
 

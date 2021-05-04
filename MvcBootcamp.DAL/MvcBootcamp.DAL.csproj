@@ -57,12 +57,12 @@
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadlineDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
-    <Compile Include="Concrete\EntityFramework\AuthorDal.cs" />
-    <Compile Include="Concrete\EntityFramework\CategoryDal.cs" />
-    <Compile Include="Concrete\EntityFramework\ContactFormDal.cs" />
-    <Compile Include="Concrete\EntityFramework\ContentDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfAuthorDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfContactFormDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
     <Compile Include="Concrete\EntityFramework\Context.cs" />
-    <Compile Include="Concrete\EntityFramework\HeadlineDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfHeadlineDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfEntityRepositoryBase.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MvcBootcamp.DAL.Concrete.EntityFramework
 {
-    public class ContentDal: EfEntityRepositoryBase<Content, Context>, IContentDal
+    public class EfHeadlineDal: EfEntityRepositoryBase<Headline, Context>, IHeadlineDal
     {
     }
 }

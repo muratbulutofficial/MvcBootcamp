@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MvcBootcamp.DAL.Concrete.EntityFramework
 {
-    public class AuthorDal:EfEntityRepositoryBase<Author,Context>,IAuthorDal
+    public class EfContactFormDal: EfEntityRepositoryBase<ContactForm, Context>, IContactFormDal
     {
     }
 }

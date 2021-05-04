@@ -17,19 +17,19 @@ namespace MvcBootcamp.BLL.DependencyResolvers.Ninject
         {
             // InSingletonScope() ilgili nesnenin sadece bir kere oluşturulmasını sağlar.
             Bind<ICategoryService>().To<CategoryManager>().InSingletonScope();
-            Bind<ICategoryDal>().To<CategoryDal>().InSingletonScope();
+            Bind<ICategoryDal>().To<EfCategoryDal>().InSingletonScope();
 
             Bind<IAuthorService>().To<AuthorManager>().InSingletonScope();
-            Bind<IAuthorDal>().To<AuthorDal>().InSingletonScope();
+            Bind<IAuthorDal>().To<EfAuthorDal>().InSingletonScope();
 
             Bind<IContactFormService>().To<ContactFormManager>().InSingletonScope();
-            Bind<IContactFormDal>().To<ContactFormDal>().InSingletonScope();
+            Bind<IContactFormDal>().To<EfContactFormDal>().InSingletonScope();
 
             Bind<IContentService>().To<ContentManager>().InSingletonScope();
-            Bind<IContentDal>().To<ContentDal>().InSingletonScope();
+            Bind<IContentDal>().To<EfContentDal>().InSingletonScope();
 
             Bind<IHeadlineService>().To<HeadlineManager>().InSingletonScope();
-            Bind<IHeadlineDal>().To<HeadlineDal>().InSingletonScope();
+            Bind<IHeadlineDal>().To<EfHeadlineDal>().InSingletonScope();
         }
     }
 }

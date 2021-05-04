@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MvcBootcamp.BLL.ValidationRules.FluentValidation
@@ -16,17 +17,18 @@ namespace MvcBootcamp.BLL.ValidationRules.FluentValidation
             RuleFor(x => x.Nickname).NotEmpty().WithMessage("Kullanıcı adı giriniz.");
 
             RuleFor(x => x.EMail).NotEmpty().WithMessage("Email adresi giriniz.");
-            RuleFor(x => x.EMail).Must(Inside).WithMessage("Geçerli bir mail adresi giriniz.");
+            RuleFor(x => x.EMail).EmailAddress().WithMessage("Geçerli bir mail adresi giriniz.").When(x => !string.IsNullOrEmpty(x.EMail));
 
-            RuleFor(x => x.Password).NotEmpty().WithMessage("Şifre giriniz.");
-            RuleFor(x => x.Password).MinimumLength(5).WithMessage("Şifre min. 5 karakter içermeli.");
-            RuleFor(x => x.Password).MaximumLength(20).WithMessage("Şifre max. 20 karakter içermeli.");
+            RuleFor(x => x.Password).NotEmpty().WithMessage("Şifre giriniz.")
+           .Must(IsPasswordValid).WithMessage("Parolanız en az 8 en fazla 20 karakter, en az bir harf ve bir sayı içermelidir!"); ;
+
 
         }
 
-        private bool Inside(string arg)
+        private bool IsPasswordValid(string arg)
         {
-            return arg.Contains('@');
+            Regex regex = new Regex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$");
+            return regex.IsMatch(arg);
         }
     }
 }

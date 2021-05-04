@@ -36,10 +36,23 @@ namespace MvcBootcamp.WebUI.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(Category category)
         {
-            _categoryService.Add(category);
-            return RedirectToAction("GetList");
+
+            try
+            {
+                _categoryService.Add(category);
+                return RedirectToAction("GetList");
+            }
+            catch (Exception exception)
+            {
+
+                ModelState.AddModelError("", exception.Message);
+            }
+
+            return View();
+
         }
     }
 }
