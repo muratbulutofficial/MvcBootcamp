@@ -79,6 +79,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2346e453-ca9f-4fd4-ab06-9105f9907739}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcBootcamp.DAL\MvcBootcamp.DAL.csproj">
       <Project>{0032c83a-5152-42ff-ac37-397702c65d30}</Project>
       <Name>MvcBootcamp.DAL</Name>

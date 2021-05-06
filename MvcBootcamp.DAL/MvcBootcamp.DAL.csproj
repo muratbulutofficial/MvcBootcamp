@@ -56,7 +56,6 @@
     <Compile Include="Abstract\IContactFormDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadlineDal.cs" />
-    <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concrete\EntityFramework\EfAuthorDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContactFormDal.cs" />
@@ -73,6 +72,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2346e453-ca9f-4fd4-ab06-9105f9907739}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcBootcamp.Entities\MvcBootcamp.Entities.csproj">
       <Project>{3abb4779-af2e-4b85-81a6-b0a598fc61a4}</Project>
       <Name>MvcBootcamp.Entities</Name>

@@ -1,4 +1,5 @@
-﻿using MvcBootcamp.Entities.Concrete;
+﻿using Core.DataAccess;
+using MvcBootcamp.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;

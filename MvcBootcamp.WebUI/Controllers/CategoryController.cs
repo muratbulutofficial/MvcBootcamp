@@ -39,7 +39,6 @@ namespace MvcBootcamp.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Add(Category category)
         {
-
             try
             {
                 _categoryService.Add(category);
@@ -47,12 +46,10 @@ namespace MvcBootcamp.WebUI.Controllers
             }
             catch (Exception exception)
             {
-
-                ModelState.AddModelError("", exception.Message);
+                     ModelState.AddModelError("Name",exception.Message );
             }
 
             return View();
-
         }
     }
 }

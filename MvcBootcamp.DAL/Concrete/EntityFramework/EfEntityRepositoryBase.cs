@@ -1,5 +1,5 @@
-﻿using MvcBootcamp.DAL.Abstract;
-using MvcBootcamp.Entities.Abstract;
+﻿using Core.DataAccess;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -34,12 +34,12 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
             }
         }
 
-        public List<TEntity> Find(Expression<Func<TEntity, bool>> filter)
+        public TEntity Find(Expression<Func<TEntity, bool>> filter)
         {
             using (TContext context = new TContext())
             {
                 // Burada set<> bize parametre oalrak gelen nesneyi temsil eder.
-                return context.Set<TEntity>().Where(filter).ToList();
+                return context.Set<TEntity>().SingleOrDefault(filter);
             }
         }
 
