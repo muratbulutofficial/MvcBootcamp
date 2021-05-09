@@ -1,0 +1,23 @@
+﻿@model  MvcBootcamp.Entities.Concrete.Category
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<div style="margin:20px 400px 0 400px;">
+
+    @using (Html.BeginForm("Add", "PanelCategory", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @style = "margin-top:10px;", @placeholder = "Name" });
+        @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" });
+
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control", @style = "margin-top:10px;", @placeholder = "Description" });
+        @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" });
+
+        <button style="margin-top:20px;" class="btn btn-success">Add</button>
+    }
+</div>
+

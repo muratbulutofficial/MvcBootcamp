@@ -1,15 +1,15 @@
 ﻿@using MvcBootcamp.Entities.Concrete
 @model List<Category>
 
-
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-
+    ViewBag.Title = "Kategori Listesi";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
 
-    <div style="margin:20px 20px 0 20px;">
+<div style="margin:20px 20px 0 20px;">
 
-        <table class="table table-bordered table-striped table-hover table-responsive">
+    <section id="unseen">
+        <table class="table table-bordered table-striped table-hover table-condensed">
             <thead style="background:white;font-size:15px;">
                 <tr>
                     <th>#</th>
@@ -23,21 +23,21 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <th>@item.Id</th>
+                        <th >@item.Id</th>
                         <td>@item.Name</td>
-                        <td>@item.Description</td>
-                        <td align="center">
+                        <td width="100px">@item.Description</td>
+                        <td align="center" width="100px">
                             @if (item.Status == true)
                             {
-                                <button class="btn btn-success" style="width:80%;">Aktif</button>
+                                <button class="btn-active" >Aktif</button>
                             }
                             else
                             {
-                                <button class="btn btn-danger" style="width:80%;">Pasif</button>
+                                <button class="btn-passive">Pasif</button>
                             }
 
                         </td>
-                      
+
                     </tr>
 
                 }
@@ -45,7 +45,8 @@
 
         </table>
 
-        <a href="/Category/Add" class="btn btn-primary"> New Category</a>
+        <a href="/PanelCategory/Add" class="btn btn-primary"> New Category</a>
+    </section>
+</div>
 
-    </div>
 
