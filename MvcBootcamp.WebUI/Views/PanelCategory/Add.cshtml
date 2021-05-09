@@ -1,23 +1,26 @@
 ﻿@model  MvcBootcamp.Entities.Concrete.Category
 
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Mvc Bootcamp V.1.1";
     Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
 
-<div style="margin:20px 400px 0 400px;">
+<div style="margin:20px 300px 0 300px;">
 
     @using (Html.BeginForm("Add", "PanelCategory", FormMethod.Post))
     {
         @Html.AntiForgeryToken();
 
-        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @style = "margin-top:10px;", @placeholder = "Name" });
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @style = "margin-top:10px;", @placeholder = "Kategori Adı" });
         @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" });
 
-        @Html.TextBoxFor(x => x.Description, new { @class = "form-control", @style = "margin-top:10px;", @placeholder = "Description" });
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @style = "margin-top:10px;height:100px;", @placeholder = "Açıklama" });
         @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" });
 
-        <button style="margin-top:20px;" class="btn btn-success">Add</button>
+        @Html.HiddenFor(x => x.Status, new { @class = "form-control", @Value="True"});
+
+
+        <button style="margin-top:20px;" class="btn btn-success">Ekle</button>
     }
 </div>
 

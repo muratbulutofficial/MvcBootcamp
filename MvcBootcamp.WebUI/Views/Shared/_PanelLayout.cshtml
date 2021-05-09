@@ -25,11 +25,6 @@
     
     @RenderSection("HomePageCss", false)
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -39,18 +34,18 @@
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
         <!--header start-->
-        <header class="header black-bg">
+        <header class="header black-bg" style="background:#424a5d;border-style:none;border-bottom:1px solid grey;">
             <div class="sidebar-toggle-box">
-                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                <div class="fa fa-bars tooltips" style="color:white;" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
             <a href="#" class="logo"><b>Yönetim Paneli</b></a>
             <!--logo end-->
-            <div class="nav notify-row" id="top_menu">
+            <!--<div class="nav notify-row" id="top_menu">-->
                 <!--  notification start -->
-                <ul class="nav top-menu">
+                <!--<ul class="nav top-menu">-->
                     <!-- settings start -->
-                    <li class="dropdown" >
+                    <!--<li class="dropdown" >
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#" >
                             <i class="fa fa-tasks"></i>
                             <span class="badge bg-theme">4</span>
@@ -116,10 +111,10 @@
                                 <a href="#">See All Tasks</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                     <!-- settings end -->
                     <!-- inbox dropdown start-->
-                    <li id="header_inbox_bar" class="dropdown">
+                    <!--<li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <i class="fa fa-envelope-o"></i>
                             <span class="badge bg-theme">1</span>
@@ -146,14 +141,14 @@
                                 <a href="index.html#">Tüm mesajlar..</a>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                     <!-- inbox dropdown end -->
-                </ul>
+                <!--</ul>-->
                 <!--  notification end -->
-            </div>
+            <!--</div>-->
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="#"><i class="fa fa-sign-out" style="font-size:15px; margin-right:5px;"></i>Çıkış yap</a></li>
+                    <li><a class="logout" href="/Login/Index"><i class="fa fa-sign-out" style="font-size:15px; margin-right:5px;"></i>Güvenli çıkış</a></li>
                 </ul>
             </div>
         </header>
@@ -167,7 +162,7 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
 
-                    <p class="centered"><a href="profile.html"><img src="~/Content/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
+                    <p class="centered" ><a href="profile.html"><img src="~/Content/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
                     <h5 class="centered">W3NCY</h5>
 
                     <li class="mt">
@@ -234,12 +229,7 @@
                         <a href="javascript:;">
                             <i class="fa fa-cogs"></i>
                             <span>Ayarlar</span>
-                            <i class="fa fa-angle-down" style="float:right;margin-top:2px;"></i>
-
                         </a>
-                        <ul class="sub">
-                            <li><a href="form_component.html">Form Components</a></li>
-                        </ul>
                     </li>
 
                 </ul>
