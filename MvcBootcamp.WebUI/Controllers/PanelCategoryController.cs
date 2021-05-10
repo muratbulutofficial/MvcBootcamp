@@ -21,7 +21,6 @@ namespace MvcBootcamp.WebUI.Controllers
         {
             return View();
         }
-        
         public ActionResult GetList()
         {
             return View(_categoryService.GetList());
@@ -41,12 +40,12 @@ namespace MvcBootcamp.WebUI.Controllers
                 _categoryService.Add(category);
                 return RedirectToAction("GetList");
             }
-            catch (Exception exception)
+            catch(Exception exception)
             {
-                ModelState.AddModelError("Name", exception.Message);
+                ModelState.AddModelError("Name",exception.Message.Substring(25));
             }
 
-            return View();
+             return View();
         }
     }
 }

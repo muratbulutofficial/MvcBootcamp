@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <meta name="keyword" content="">
 
-    <title>Giriş Yap</title>
+    <title>Mvc Bootcamp V.1.1</title>
 
     <!-- Bootstrap core CSS -->
     <link href="~/Content/css/bootstrap.css" rel="stylesheet">
@@ -23,53 +23,59 @@
     <link href="~/Content/css/style.css" rel="stylesheet">
     <link href="~/Content/css/style-responsive.css" rel="stylesheet">
 
-  
+
 </head>
 
-<body style="background:url(/Content/img/login-bg.jpg);background-repeat: no-repeat;background-position:center;background-size:cover;background-attachment:fixed;">
-
-    <div id="login-page">
-        <div class="container">
-
-            <form class="form-login" action="/Login/Index">
-                <h2 class="form-login-heading">Mvc Bootcamp V.1.1</h2>
-                <div class="login-wrap">
-                    <input type="text" class="form-control" placeholder="E-mail adresinizi yazınız" autofocus>
-                    <br>
-                    <input type="password" class="form-control" placeholder="Şifrenizi adresinizi yazınız">
-                    <label class="checkbox">
-                        <span class="pull-right">
-                            <a data-toggle="modal" href="login.html#myModal"> Şifreni mi unuttun?</a>
-                        </span>
-                    </label>
-                    <button class="btn-login" type="submit">Giriş Yap</button>
-                    
-                </div>
-
-                <!-- Modal -->
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header" style="background: rgba(38,43,54,.9);">
-                                <button type="button" class="close" style="color:white;" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">Şifreni mi unuttun?</h4>
+<body id="login-body">
+        <div id="login-page">
+            <div class="container">
+                <form class="form-login" action="/Login/Index">
+                    <h2 class="form-login-heading">Mvc Bootcamp V.1.1</h2>
+                    <div class="login-wrap">
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="error-msg">
+                                <i class="fa fa-exclamation-circle" style="float:left;line-height:35px;"></i>
+                                @ViewBag.ErrorMessage
                             </div>
-                            <div class="modal-body">
-                                <p>Şifrenizi sıfırlamak için aşağıya e-posta adresinizi girin.</p>
-                                <input type="text" name="email" placeholder="E-mail adresinizi yazınız" autocomplete="off" class="form-control placeholder-no-fix">
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn-login" type="button"><i class="fa fa-paper-plane-o" style="margin-right:5px;"></i>Şifre Gönder</button>
+                        }
+
+                        <input type="text" class="form-control" placeholder="E-mail adresinizi yazınız">
+                        <br>
+                        <input type="password" class="form-control" placeholder="Şifrenizi adresinizi yazınız">
+                        <label class="checkbox">
+                            <span class="pull-right">
+                                <a data-toggle="modal" href="login.html#myModal"> Şifreni mi unuttun?</a>
+                            </span>
+                        </label>
+                        <button class="btn-login" type="submit">Giriş Yap</button>
+
+                    </div>
+
+                    <!-- Modal -->
+                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background: rgba(38,43,54,.9);">
+                                    <button type="button" class="close" style="color:white;" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title">Şifreni mi unuttun?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Şifrenizi sıfırlamak için aşağıya e-posta adresinizi girin.</p>
+                                    <input type="text" name="email" placeholder="E-mail adresinizi yazınız" autocomplete="off" class="form-control placeholder-no-fix">
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn-login" type="button"><i class="fa fa-paper-plane-o" style="margin-right:5px;"></i>Şifre Gönder</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- modal -->
+                    <!-- modal -->
 
-            </form>
+                </form>
 
+            </div>
         </div>
-    </div>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="~/Scripts/jquery.js"></script>

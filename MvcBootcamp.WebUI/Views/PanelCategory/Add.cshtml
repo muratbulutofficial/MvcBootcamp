@@ -5,22 +5,34 @@
     Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
 
-<div style="margin:20px 300px 0 300px;">
 
-    @using (Html.BeginForm("Add", "PanelCategory", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken();
+<div class="row mt">
+    <div class="col-md-12">
+        <div class="content-panel" style="padding:10px 10px 10px 10px;">
 
-        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @style = "margin-top:10px;", @placeholder = "Kategori Adı" });
-        @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" });
+            @using (Html.BeginForm("Add", "PanelCategory", FormMethod.Post))
+            {
+                <div style="width:100%;height:auto;background:white;padding:10px 0 10px 0;margin-bottom:3px;border-radius:3px;">
 
-        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @style = "margin-top:10px;height:100px;", @placeholder = "Açıklama" });
-        @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" });
+                    <button class="btn btn-success" style="float:right;"><i class="fa fa-save"></i> Kaydet</button>
+                    <div style="clear:both;"></div>
+                    <hr style="border:1px solid #d3d3d3;" />
+                </div>
 
-        @Html.HiddenFor(x => x.Status, new { @class = "form-control", @Value="True"});
+
+                @Html.AntiForgeryToken();
+
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @style = "margin-top:10px;", @placeholder = "Kategori Adı" });
+                @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" });
+
+                @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @style = "margin-top:10px;height:100px;resize:none", @Maxlength = "100", @placeholder = "Açıklama" });
+                @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" });
+
+                @Html.HiddenFor(x => x.Status, new { @class = "form-control", @Value = "True" });
 
 
-        <button style="margin-top:20px;" class="btn btn-success">Ekle</button>
-    }
+            }
+        </div>
+    </div>
 </div>
 

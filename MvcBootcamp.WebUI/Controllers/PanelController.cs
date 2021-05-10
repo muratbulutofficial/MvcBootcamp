@@ -9,6 +9,7 @@ namespace MvcBootcamp.WebUI.Controllers
     public class PanelController : Controller
     {
         // GET: Panel
+        [Route("panel")]
         public ActionResult Index()
         {
             return View();

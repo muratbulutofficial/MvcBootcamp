@@ -9,8 +9,10 @@ namespace MvcBootcamp.WebUI.Controllers
     public class LoginController : Controller
     {
         // GET: Login
+        [Route("Login")]
         public ActionResult Index()
         {
+            ViewBag.ErrorMessage = "E-Mail adresi veya şifre hatalı!";
             return View();
         }
     }
