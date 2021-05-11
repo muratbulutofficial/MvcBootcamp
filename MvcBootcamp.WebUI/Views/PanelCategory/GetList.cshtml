@@ -23,7 +23,7 @@
                     <tr>
                         <th>#</th>
                         <th>Kategori Adı</th>
-                        <th>Açıklama</th>
+                        <th class="hidden-phone">Açıklama</th>
                         <th>Durum</th>
                         <th>İşlemler</th>
                     </tr>
@@ -34,7 +34,7 @@
                         <tr>
                             <th>@item.Id</th>
                             <td>@item.Name</td>
-                            <td>@item.Description </td>
+                            <td class="hidden-phone">@item.Description </td>
                             <td align="center">
                                 @if (item.Status == true)
                                 {
@@ -47,8 +47,8 @@
                             </td>
                             <td align="center" width="220px">
                                 <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-copy"></i> Kopyala</a>
-                                <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil" style="margin-right:3px;"></i>Düzenle</a>
-                                <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" style="margin-right:3px;"></i>Sil</a>
+                                <a href="/PanelCategory/Update/@item.Id" class="btn btn-primary btn-xs"><i class="fa fa-pencil" style="margin-right:3px;"></i>Düzenle</a>
+                                <button class="btn btn-danger btn-xs btnRemove" name="@item.Id"><i class="fa fa-trash-o" style="margin-right:3px;"></i>Sil</button>
                             </td>
                         </tr>
                     }
@@ -58,4 +58,7 @@
     </div><!-- /col-md-12 -->
 </div><!-- /row -->
 
-
+@section SweetAlert{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Scripts/sweet-alert.js"></script>
+}

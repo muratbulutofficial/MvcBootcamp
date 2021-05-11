@@ -11,5 +11,8 @@ namespace MvcBootcamp.BLL.Abstract
     {
         List<Category> GetList();
         void Add(Category category);
+        Category Find(int id);
+        void Update(Category category);
+        void Remove(Category category);
     }
 }

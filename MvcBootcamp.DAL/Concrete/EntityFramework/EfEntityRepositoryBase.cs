@@ -62,5 +62,6 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
                 context.SaveChanges();
             }
         }
+
     }
 }

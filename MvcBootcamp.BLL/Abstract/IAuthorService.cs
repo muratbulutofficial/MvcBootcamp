@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcBootcamp.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace MvcBootcamp.BLL.Abstract
 {
     public interface IAuthorService
     {
+        List<Author> GetList();
+
     }
 }

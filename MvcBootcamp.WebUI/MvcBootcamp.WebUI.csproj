@@ -134,6 +134,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PanelCategoryController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
+    <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -194,6 +195,7 @@
     <Content Include="Scripts\jquery.ui.touch-punch.min.js" />
     <Content Include="Scripts\morris-conf.js" />
     <Content Include="Scripts\sparkline-chart.js" />
+    <Content Include="Scripts\sweet-alert.js" />
     <Content Include="Scripts\tasks.js" />
     <Content Include="Scripts\zabuto_calendar.js" />
     <Content Include="Content\css\lineicons\fonts\linecons.svg" />
@@ -227,6 +229,7 @@
     <Content Include="Content\css\lineicons\fonts\linecons.eot" />
     <Content Include="Content\css\lineicons\fonts\linecons.ttf" />
     <Content Include="Content\css\lineicons\fonts\linecons.woff" />
+    <Content Include="Views\Statistic\StatisticPage.PNG" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -261,6 +264,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\PanelCategory\Update.cshtml" />
+    <Content Include="Views\Statistic\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvcBootcamp.BLL\MvcBootcamp.BLL.csproj">

@@ -25,11 +25,26 @@ namespace MvcBootcamp.BLL.Concrete
             _categoryDal.Add(category);
         }
 
+        public Category Find(int id)
+        {
+            return _categoryDal.Find(x=>x.Id==id);
+        }
+
         public List<Category> GetList()
         {
             return _categoryDal.Getlist();
         }
 
+        public void Remove(Category category)
+        {
+            _categoryDal.Remove(category);
+        }
+
+        public void Update(Category category)
+        {
+            ValidationTool.FluentValidate(new CategoryValidator(), category);
+            _categoryDal.Update(category);
+        }
     }
 }
 

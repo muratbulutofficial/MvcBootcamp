@@ -47,5 +47,35 @@ namespace MvcBootcamp.WebUI.Controllers
 
              return View();
         }
+
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            return View("Update",_categoryService.Find(id));
+        }
+        [HttpPost]
+        public ActionResult Update(Category category)
+        {
+            try
+            {
+                _categoryService.Update(category);
+                return RedirectToAction("GetList");
+            }
+            catch (Exception exception)
+            {
+                ModelState.AddModelError("Name", exception.Message.Substring(25));
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult Remove(int id)
+        {
+           var entity= _categoryService.Find(id);
+            _categoryService.Remove(entity);
+            return Json(entity.Name +" isimli kategori başarıyla silinmiştir.", JsonRequestBehavior.AllowGet);
+        }
     }
+
 }

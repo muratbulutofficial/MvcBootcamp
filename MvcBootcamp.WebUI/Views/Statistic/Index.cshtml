@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Mvc Bootcamp V.1.1";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<div style="width:250px;height:200px;background:white;margin:30px 10px 15px 0;padding-top:10px;border:1px solid #d3d3d3;float:left;">
+    <h3 style="text-align:center;color:#de5565;font-weight:bold;">Kategori Sayısı</h3>
+    <div style="margin-top:40px;text-align:center;font-size:34px;">@ViewBag.CategoryCount</div>
+</div>
+
+<div style="width:250px;height:200px;background:white;margin:30px 10px 15px 0;padding-top:10px;border:1px solid #d3d3d3;float:left;">
+    <h3 style="text-align:center;color:#de5565;font-weight:bold;">Yazılım Başlıkları</h3>
+    <div style="margin-top:40px;text-align:center;font-size:34px;">@ViewBag.HeadlineOfSoftware</div>
+</div>
+<div style="width:300px;height:200px;background:white;margin:30px 10px 15px 0;padding-top:10px;border:1px solid #d3d3d3;float:left;">
+    <h3 style="text-align:center;color:#de5565;font-weight:bold;">İsminde 'A' harfi olanlar</h3>
+    <div style="margin-top:40px;text-align:center;font-size:34px;">@ViewBag.AuthorGetByWord</div>
+</div>
+<div style="width:400px;height:200px;background:white;margin:30px 10px 15px 0;padding-top:10px;border:1px solid #d3d3d3;float:left;">
+    <h3 style="text-align:center;color:#de5565;font-weight:bold;">En Fazla Başlığa Sahip Kategori</h3>
+    <div style="margin-top:40px;text-align:center;font-size:34px;">@ViewBag.MaxHeadline</div>
+</div>
+<div style="width:410px;height:200px;background:white;margin:30px 10px 15px 0;padding-top:10px;border:1px solid #d3d3d3;float:left;">
+    <h3 style="text-align:center;color:#de5565;font-weight:bold;">True - False Olan Kategoriler Farkı </h3>
+    <div style="margin-top:40px;text-align:center;font-size:34px;">@ViewBag.StatusDifference</div>
+</div>
+
+<div class="clear"></div>
+
