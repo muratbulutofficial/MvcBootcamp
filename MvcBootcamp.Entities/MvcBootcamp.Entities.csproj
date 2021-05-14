@@ -46,6 +46,7 @@
     <Compile Include="Concrete\ContactForm.cs" />
     <Compile Include="Concrete\Content.cs" />
     <Compile Include="Concrete\Headline.cs" />
+    <Compile Include="DTOs\ContentDetailDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

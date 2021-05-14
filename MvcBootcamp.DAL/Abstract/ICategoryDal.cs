@@ -10,5 +10,6 @@ namespace MvcBootcamp.DAL.Abstract
 {
    public interface ICategoryDal:IRepository<Category>
     {
+        void SetStatus(int id);
     }
 }

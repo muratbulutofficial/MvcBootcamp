@@ -24,6 +24,7 @@
     <link href="~/Content/css/style-responsive.css" rel="stylesheet">
     
     @RenderSection("HomePageCss", false)
+    @RenderSection("SweetAlert", false)
 
 </head>
 
@@ -160,8 +161,8 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
 
-                    <p class="centered"><a href="#"><img src="~/Content/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
-                    <h5 class="centered">Admin</h5>
+                    @*<p class="centered"><a href="#"><img src="~/Content/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
+                    <h5 class="centered">Admin</h5>*@
 
                     <li class="mt">
                         <a href="/panel">
@@ -186,7 +187,7 @@
 
                     </li>
                     <li class="sub-menu">
-                        <a href="javascript:;">
+                        <a href="/PanelAuthor/GetList">
                             <i class="fa fa-book"></i>
                             <span>Yazarlar</span>
                         </a>
@@ -194,7 +195,7 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:;">
+                        <a href="/PanelContent/GetList">
                             <i class="fa fa-pencil-square-o"></i>
                             <span>Yazılar</span>
                         </a>
@@ -273,7 +274,7 @@
     <script src="~/Scripts/jquery.scrollTo.min.js"></script>
 
     @RenderSection("HomePageScripts", false)
-    @RenderSection("SweetAlert", false)
+    @RenderSection("OperationScripts", false)
 
     <!--common script for all pages-->
     <script src="~/Scripts/common-scripts.js"></script>

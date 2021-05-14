@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MvcBootcamp.Entities.Concrete;
+using MvcBootcamp.Entities.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,7 @@ namespace MvcBootcamp.BLL.Abstract
 {
     public interface IContentService
     {
+        List<Content> GetList();
+        List<ContentDetailDto> GetContentDetails();
     }
 }

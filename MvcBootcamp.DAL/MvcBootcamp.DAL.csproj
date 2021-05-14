@@ -63,6 +63,10 @@
     <Compile Include="Concrete\EntityFramework\Context.cs" />
     <Compile Include="Concrete\EntityFramework\EfHeadlineDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfEntityRepositoryBase.cs" />
+    <Compile Include="Migrations\202105142122519_mig_author_edit.cs" />
+    <Compile Include="Migrations\202105142122519_mig_author_edit.designer.cs">
+      <DependentUpon>202105142122519_mig_author_edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,7 +74,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105142122519_mig_author_edit.resx">
+      <DependentUpon>202105142122519_mig_author_edit.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{2346e453-ca9f-4fd4-ab06-9105f9907739}</Project>

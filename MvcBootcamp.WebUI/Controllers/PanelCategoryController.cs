@@ -76,6 +76,14 @@ namespace MvcBootcamp.WebUI.Controllers
             _categoryService.Remove(entity);
             return Json(entity.Name +" isimli kategori başarıyla silinmiştir.", JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public JsonResult SetStatus(int id)
+        {
+            _categoryService.SetStatus(id);
+            return Json(JsonRequestBehavior.AllowGet);
+        }
+        
     }
 
 }

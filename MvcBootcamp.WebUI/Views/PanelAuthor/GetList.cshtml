@@ -1,0 +1,36 @@
+﻿@using MvcBootcamp.Entities.Concrete
+@model List<Author>
+@{
+    ViewBag.Title = "Mvc Bootcamp V.1.1";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<section class="wrapper">
+
+    <div class="row">
+        <div class="col-lg-9 main-chart">
+            <div class="col-md-4 mb">
+                <!-- WHITE PANEL - TOP USER -->
+                <div class="white-panel pn">
+                    <div class="white-header">
+                        <h5>POPÜLER YAZARLAR<i class="fa fa-cog" style="float:right;color:#de5565;"></i></h5>
+
+                    </div>
+                    <p><img src="~/Content/img/bg-avatar.png" class="img-circle" width="80"></p>
+                    <p><b>Zac Snider</b></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="small mt">ÜYELİK TARİHİ</p>
+                            <p>2012</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="small mt">TOTAL SPEND</p>
+                            <p>$ 47,60</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

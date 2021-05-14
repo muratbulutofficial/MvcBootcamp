@@ -32,12 +32,17 @@ namespace MvcBootcamp.BLL.Concrete
 
         public List<Category> GetList()
         {
-            return _categoryDal.Getlist();
+            return _categoryDal.Getlist().OrderByDescending(x => x.Id).ToList();
         }
 
         public void Remove(Category category)
         {
             _categoryDal.Remove(category);
+        }
+
+        public void SetStatus(int id)
+        {
+            _categoryDal.SetStatus(id);
         }
 
         public void Update(Category category)

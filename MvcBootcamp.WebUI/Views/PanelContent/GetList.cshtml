@@ -1,11 +1,9 @@
-﻿@using MvcBootcamp.Entities.Concrete
-@model List<Category>
-
+﻿@using MvcBootcamp.Entities.DTOs
+@model List<ContentDetailDto>
 @{
     ViewBag.Title = "Mvc Bootcamp V.1.1";
     Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
-
 
 
 <div class="row mt">
@@ -24,9 +22,10 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Kategori Adı</th>
-                        <th class="hidden-phone">Açıklama</th>
-                        <th>Durum</th>
+                        <th>Yazar</th>
+                        <th class="hidden-phone" >Başlık</th>
+                        <th>İçerik</th>
+                        <th>Tarih</th>
                         <th>İşlemler</th>
                     </tr>
                 </thead>
@@ -34,23 +33,25 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <th>@item.Id</th>
-                            <td>@item.Name</td>
-                            <td class="hidden-phone">@item.Description </td>
-                            <td align="center" width="100px">
+                            <th>@item.ContentId</th>
+                            <td>@item.AuthorName</td>
+                            <td >@item.HeadlineName </td>
+                            @*<td align="center">
                                 @if (item.Status == true)
                                 {
-                                    <button id="@item.Id" class="btn-active btnStatus">Aktif</button>
+                                    <button id="@item.Id" class="btn-active">Aktif</button>
                                 }
                                 else
                                 {
-                                    <button id="@item.Id" class="btn-passive btnStatus">Pasif</button>
+                                    <button id="@item.Id" class="btn-passive">Pasif</button>
                                 }
-                            </td>
+                            </td>*@
+                            <td class="hidden-phone">@item.ContentText.Substring(0,95) ...</td>
+                            <td width="150px">@item.CreationDate</td>
                             <td align="center" width="220px">
                                 <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-copy"></i> Kopyala</a>
-                                <a href="/PanelCategory/Update/@item.Id" class="btn btn-primary btn-xs"><i class="fa fa-pencil" style="margin-right:3px;"></i>Düzenle</a>
-                                <button class="btn btn-danger btn-xs btnRemove" name="@item.Id"><i class="fa fa-trash-o" style="margin-right:3px;"></i>Sil</button>
+                                <a href="/PanelContent/Update/@item.ContentId" class="btn btn-primary btn-xs"><i class="fa fa-pencil" style="margin-right:3px;"></i>Düzenle</a>
+                                <button class="btn btn-danger btn-xs btnRemove" name="@item.ContentId"><i class="fa fa-trash-o" style="margin-right:3px;"></i>Sil</button>
                             </td>
                         </tr>
                     }
@@ -59,15 +60,3 @@
         </div><!-- /content-panel -->
     </div><!-- /col-md-12 -->
 </div><!-- /row -->
-
-@section SweetAlert{
-
-    <link href="~/Content/css/sweet-alert/sweet-alert.css" rel="stylesheet" />
-}
-
-@section OperationScripts{
-
-    <script src="~/Scripts/sweetalert/sweetalert.min.js"></script>
-    <script src="~/Scripts/web-operation/web-operation.js"></script>
-}
-

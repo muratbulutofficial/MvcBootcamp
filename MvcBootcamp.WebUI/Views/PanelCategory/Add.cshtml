@@ -28,7 +28,9 @@
                 @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @style = "margin-top:10px;height:100px;resize:none", @Maxlength = "100", @placeholder = "Açıklama" });
                 @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" });
 
-                @Html.HiddenFor(x => x.Status, new { @class = "form-control", @Value = "True" });
+                <h3>Durum</h3>
+                @Html.RadioButtonFor(x => x.Status, "True", new { @checked = "True" });<label style="margin:0 15px 0 5px;">AKTİF</label>
+                @Html.RadioButtonFor(x => x.Status, "False");<label style="margin:0 0 0 5px;" id="Passive">PASİF</label>
 
 
             }

@@ -30,15 +30,6 @@ body {
     background-attachment: fixed;
 }
 
-.btn-excel {
-    float: right;
-    margin-right: 10px;
-    background: none;
-    color: #797979;
-}
-.btn-excel-icon {
-    color: #5cb85c;
-}
 
 .btn-active {
     font-family: Arial, Helvetica, sans-serif;
