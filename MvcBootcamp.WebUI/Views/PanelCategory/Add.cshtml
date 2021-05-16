@@ -21,20 +21,36 @@
 
 
                 @Html.AntiForgeryToken();
-
+                <label>Kategori Adı</label>
                 @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @style = "margin-top:10px;", @placeholder = "Kategori Adı" });
                 @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" });
-
+                <label class="label">Açıklama</label>
                 @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @style = "margin-top:10px;height:100px;resize:none", @Maxlength = "100", @placeholder = "Açıklama" });
-                @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" });
+                @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger", @id = "Description" });
 
                 <h3>Durum</h3>
-                @Html.RadioButtonFor(x => x.Status, "True", new { @checked = "True" });<label style="margin:0 15px 0 5px;">AKTİF</label>
-                @Html.RadioButtonFor(x => x.Status, "False");<label style="margin:0 0 0 5px;" id="Passive">PASİF</label>
-
+                @Html.DropDownListFor(x=>x.Status, new List<SelectListItem> {
+                     new SelectListItem {
+                        Text="Aktif",
+                        Value="True",
+                        // Selected = true, seçili olarak gelsin
+                        // Disabled = true  disable olarak gelsin istersek kullanıyoruz
+                     },
+                     new SelectListItem {
+                        Text="Pasif",
+                        Value="False",
+                     },
+                 }, "--Seçiniz--", new { @class = "form-control", @style = "margin-top:10px;" })
 
             }
         </div>
     </div>
 </div>
 
+@section Ckeditor{
+
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script >
+        CKEDITOR.replace("Description");
+    </script>
+}

@@ -33,6 +33,7 @@ namespace MvcBootcamp.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)] //ckeditör ile kayıt eklerken Request.form hatası almamak için kullanılır.
         public ActionResult Add(Category category)
         {
             try
@@ -54,6 +55,7 @@ namespace MvcBootcamp.WebUI.Controllers
             return View("Update",_categoryService.Find(id));
         }
         [HttpPost]
+        [ValidateInput(false)] //ckeditör ile kayıt eklerken Request.form hatası almamak için kullanılır.
         public ActionResult Update(Category category)
         {
             try

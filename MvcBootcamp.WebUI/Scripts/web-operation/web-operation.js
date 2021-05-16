@@ -18,12 +18,7 @@ $(document).ready(function () {
                         type: 'POST',
                         dataType: 'json',
                         success: function (data) {
-                            swal({
-                                text: data,
-                                icon: "success",
-                                button: "Tamam",
-                            });
-
+                           
                         }
 
                     });

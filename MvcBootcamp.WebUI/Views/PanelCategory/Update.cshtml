@@ -24,13 +24,20 @@
                 @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" });
 
                 @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @style = "margin-top:10px;height:100px;resize:none", @Maxlength = "100", @placeholder = "Açıklama" });
-                @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" });
+                @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger", @id= "Description" });
                 <h3>Durum</h3>
                 @Html.RadioButtonFor(x => x.Status, "True");<label style="margin:0 15px 0 5px;">AKTİF</label>
-                @Html.RadioButtonFor(x => x.Status, "False",new {@for="Passive" });<label style="margin:0 0 0 5px;" id="Passive">PASİF</label>
-               
+                @Html.RadioButtonFor(x => x.Status, "False", new { @for = "Passive" });<label style="margin:0 0 0 5px;" id="Passive">PASİF</label>
+
             }
         </div>
     </div>
 </div>
 
+@section Ckeditor{
+
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("Description");
+    </script>
+}

@@ -20,6 +20,7 @@ namespace MvcBootcamp.Entities.Concrete
         public string Image { get; set; }
         public string EMail { get; set; }
         public string Password { get; set; }
+        public string PasswordSalt { get; set; }
         public string About { get; set; }
         public bool Status { get; set; }
         public DateTime RegisterDate { get; set; }
