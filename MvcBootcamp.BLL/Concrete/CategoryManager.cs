@@ -1,5 +1,5 @@
-﻿using MvcBootcamp.BLL.Abstract;
-using MvcBootcamp.BLL.Utilities;
+﻿using Core.Aspects.PostSharp.Validation;
+using MvcBootcamp.BLL.Abstract;
 using MvcBootcamp.BLL.ValidationRules.FluentValidation;
 using MvcBootcamp.DAL.Concrete.EntityFramework;
 using MvcBootcamp.Entities.Concrete;
@@ -19,9 +19,9 @@ namespace MvcBootcamp.BLL.Concrete
             _categoryDal = categoryDal;
         }
 
+        [ValidationAspect(typeof(CategoryValidator))]
         public void Add(Category category)
         {
-            ValidationTool.FluentValidate(new CategoryValidator(),category);
             _categoryDal.Add(category);
         }
 
@@ -45,9 +45,9 @@ namespace MvcBootcamp.BLL.Concrete
             _categoryDal.SetStatus(id);
         }
 
+        [ValidationAspect(typeof(CategoryValidator))]
         public void Update(Category category)
         {
-            ValidationTool.FluentValidate(new CategoryValidator(), category);
             _categoryDal.Update(category);
         }
     }

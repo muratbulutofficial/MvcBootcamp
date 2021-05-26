@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
 
-
 <div class="row mt">
     <div class="col-md-12">
         <div class="content-panel" style="padding:10px 10px 10px 10px;">
@@ -19,36 +18,34 @@
                     <hr style="border:1px solid #d3d3d3;" />
                 </div>
 
-
                 @Html.AntiForgeryToken();
                 <label>Kategori Adı</label>
                 @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @style = "margin-top:10px;", @placeholder = "Kategori Adı" });
                 @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" });
-                <label class="label">Açıklama</label>
-                @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @style = "margin-top:10px;height:100px;resize:none", @Maxlength = "100", @placeholder = "Açıklama" });
-                @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger", @id = "Description" });
+                <label>Açıklama</label>
+                @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @id = "Description", @style = "margin-top:10px;height:100px;resize:none", @Maxlength = "100", @placeholder = "Açıklama" });
+                @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" });
 
                 <h3>Durum</h3>
-                @Html.DropDownListFor(x=>x.Status, new List<SelectListItem> {
+                @Html.DropDownListFor(x => x.Status, new List<SelectListItem> {
                      new SelectListItem {
                         Text="Aktif",
-                        Value="True",
-                        // Selected = true, seçili olarak gelsin
+                        Value="true",
+                       // Selected = true, seçili olarak gelsin
                         // Disabled = true  disable olarak gelsin istersek kullanıyoruz
                      },
                      new SelectListItem {
                         Text="Pasif",
-                        Value="False",
-                     },
-                 }, "--Seçiniz--", new { @class = "form-control", @style = "margin-top:10px;" })
-
+                        Value="false",
+                     }}, "--Seçiniz--", new { @class = "form-control", @style = "margin-top:10px;" });
             }
+
+
         </div>
     </div>
 </div>
 
 @section Ckeditor{
-
     <script src="~/Scripts/ckeditor/ckeditor.js"></script>
     <script >
         CKEDITOR.replace("Description");

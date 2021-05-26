@@ -1,5 +1,6 @@
 ﻿using MvcBootcamp.BLL.Abstract;
 using MvcBootcamp.BLL.DependencyResolvers.Ninject;
+using MvcBootcamp.DAL.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace MvcBootcamp.WebUI.Controllers
         private IHeadlineService _headlineService;
         private IAuthorService _authorService;
         // GET: Statistic
+        
         public ActionResult Index()
         {
             ViewBag.CategoryCount = _categoryService.GetList().Count();

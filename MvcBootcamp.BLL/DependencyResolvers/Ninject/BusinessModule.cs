@@ -1,4 +1,5 @@
-﻿using MvcBootcamp.BLL.Abstract;
+﻿using Castle.DynamicProxy;
+using MvcBootcamp.BLL.Abstract;
 using MvcBootcamp.BLL.Concrete;
 using MvcBootcamp.DAL.Abstract;
 using MvcBootcamp.DAL.Concrete.EntityFramework;

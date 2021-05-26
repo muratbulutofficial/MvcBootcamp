@@ -15,7 +15,8 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
         public DbSet<ContactForm> ContactForms { get; set; }
         public DbSet<Content> Contents { get; set; }
         public DbSet<Headline> Headlines { get; set; }
-
+        public DbSet<UserLevel> UserLevels { get; set; }
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -37,6 +38,9 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
             modelBuilder.Entity<Content>().Property(c => c.Text).HasMaxLength(500).IsRequired();
 
             modelBuilder.Entity<Headline>().Property(c => c.Text).HasMaxLength(100).IsRequired();
+
+            modelBuilder.Entity<UserLevel>().Property(c => c.Level).HasMaxLength(10).IsRequired();
+
         }
     }
 }

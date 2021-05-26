@@ -1,28 +1,30 @@
-﻿//sweet alert
+﻿//Remove alert
 $(document).ready(function () {
     $(".btnRemove").click(function () {
         swal({
             title: "Silmek istediğinize emin misiniz?",
             text: "Bu işlem geri alınamaz!",
             icon: "warning",
-            buttons: ["Vazgeç", true],
+            buttons: ["Vazgeç", "Evet,Sil"],
             dangerMode: true,
+            
         })
             .then((willDelete) => {
                 if (willDelete) {
                     var ID = $(this).attr('name');
                     //Tıklanan ilgili linkin name özelliğindeki ID değerini çekiyoruz.
-                    var x = $(this);
+                   // var x = $(this); seçilen satır değeri alınır.
                     $.ajax({
                         url: '/PanelCategory/Remove/' + ID,//Ajax ile tetiklenecek ilgili adresi belirliyoruz.
                         type: 'POST',
                         dataType: 'json',
                         success: function (data) {
-                           
+                           location.reload();
                         }
 
                     });
-                    x.parent('td').parent('tr').remove();
+                  //  x.parent('td').parent('tr').remove(); silenen satır tablodan silinir.
+                
                 }
             });
 
@@ -48,3 +50,30 @@ $(document).ready(function () {
 
     });
 });
+
+// Checkbox selected
+// select single
+$(document).ready(function () {
+    $('.SelectItem').click(function () {
+        if ($('.SelectItem').prop("checked"))
+            $('#RemoveSelected').css({ display: 'block' });
+        else
+            $('#RemoveSelected').css({ display: 'none' });
+    });
+});
+
+//select all
+$(document).ready(function () {
+    $('#SelectAll').click(function () {  //on click
+        if (this.checked) { // check select status
+            $(":checkbox").prop("checked", true);
+            $('#RemoveSelected').css({ display: 'block' });
+        } else {
+            $(":checkbox").prop("checked", false);
+            $('#RemoveSelected').css({ display: 'none' });
+        }
+    });
+
+});
+
+

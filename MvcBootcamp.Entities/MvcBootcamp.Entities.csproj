@@ -46,6 +46,7 @@
     <Compile Include="Concrete\ContactForm.cs" />
     <Compile Include="Concrete\Content.cs" />
     <Compile Include="Concrete\Headline.cs" />
+    <Compile Include="Concrete\UserLevel.cs" />
     <Compile Include="DTOs\ContentDetailDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,6 +58,9 @@
       <Project>{2346e453-ca9f-4fd4-ab06-9105f9907739}</Project>
       <Name>Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

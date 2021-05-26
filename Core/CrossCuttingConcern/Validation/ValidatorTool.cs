@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvcBootcamp.BLL.Utilities
+namespace Core.CrossCuttingConcern.Validation
 {
-    public class ValidationTool
+   public static class ValidatorTool
     {
         public static void FluentValidate(IValidator validatior, object entity)
         {
@@ -15,6 +15,5 @@ namespace MvcBootcamp.BLL.Utilities
             if (result.Errors.Count > 0)
                 throw new ValidationException(result.Errors);
         }
-
     }
 }

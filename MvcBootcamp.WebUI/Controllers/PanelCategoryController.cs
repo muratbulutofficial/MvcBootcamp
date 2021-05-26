@@ -1,6 +1,7 @@
 ﻿using MvcBootcamp.BLL.Abstract;
 using MvcBootcamp.BLL.DependencyResolvers.Ninject;
 using MvcBootcamp.Entities.Concrete;
+using MvcBootcamp.WebUI.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace MvcBootcamp.WebUI.Controllers
             _categoryService = InstanceFactory.GetInstance<ICategoryService>();
         }
         private ICategoryService _categoryService;
+
         // GET: PanelCategory
         public ActionResult Index()
         {
@@ -41,20 +43,21 @@ namespace MvcBootcamp.WebUI.Controllers
                 _categoryService.Add(category);
                 return RedirectToAction("GetList");
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
-                ModelState.AddModelError("Name",exception.Message.Substring(25));
+                ModelState.AddModelError("Name", exception.Message.Substring(25));
             }
 
-             return View();
+            return View();
         }
 
         [HttpGet]
         public ActionResult Update(int id)
         {
-            return View("Update",_categoryService.Find(id));
+            return View("Update", _categoryService.Find(id));
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [ValidateInput(false)] //ckeditör ile kayıt eklerken Request.form hatası almamak için kullanılır.
         public ActionResult Update(Category category)
         {
@@ -74,9 +77,9 @@ namespace MvcBootcamp.WebUI.Controllers
         [HttpPost]
         public JsonResult Remove(int id)
         {
-           var entity= _categoryService.Find(id);
+            var entity = _categoryService.Find(id);
             _categoryService.Remove(entity);
-            return Json(entity.Name +" isimli kategori başarıyla silinmiştir.", JsonRequestBehavior.AllowGet);
+            return Json(JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -85,7 +88,7 @@ namespace MvcBootcamp.WebUI.Controllers
             _categoryService.SetStatus(id);
             return Json(JsonRequestBehavior.AllowGet);
         }
-        
+
     }
 
 }

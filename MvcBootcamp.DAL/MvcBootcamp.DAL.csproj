@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202105142122519_mig_author_edit.designer.cs">
       <DependentUpon>202105142122519_mig_author_edit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105201417275_mig_addtable_userlevel.cs" />
+    <Compile Include="Migrations\202105201417275_mig_addtable_userlevel.designer.cs">
+      <DependentUpon>202105201417275_mig_addtable_userlevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105142122519_mig_author_edit.resx">
       <DependentUpon>202105142122519_mig_author_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105201417275_mig_addtable_userlevel.resx">
+      <DependentUpon>202105201417275_mig_addtable_userlevel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

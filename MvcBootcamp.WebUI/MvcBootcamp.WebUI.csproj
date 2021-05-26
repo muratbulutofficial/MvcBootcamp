@@ -129,6 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Classes\CategoryModel.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -593,21 +594,6 @@
     <Content Include="Content\css\lineicons\fonts\linecons.svg" />
     <Content Include="Scripts\lineicons\lte-ie7.js" />
     <Content Include="Content\css\lineicons\style.css" />
-    <Content Include="dashgum\Theme\basic_table.html" />
-    <Content Include="dashgum\Theme\blank.html" />
-    <Content Include="dashgum\Theme\buttons.html" />
-    <Content Include="dashgum\Theme\calendar.html" />
-    <Content Include="dashgum\Theme\chartjs.html" />
-    <Content Include="dashgum\Theme\form_component.html" />
-    <Content Include="dashgum\Theme\gallery.html" />
-    <Content Include="dashgum\Theme\general.html" />
-    <Content Include="dashgum\Theme\index.html" />
-    <Content Include="dashgum\Theme\lock_screen.html" />
-    <Content Include="dashgum\Theme\login.html" />
-    <Content Include="dashgum\Theme\morris.html" />
-    <Content Include="dashgum\Theme\panels.html" />
-    <Content Include="dashgum\Theme\responsive_table.html" />
-    <Content Include="dashgum\Theme\todo_list.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -646,7 +632,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="dashgum\Theme\assets\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
