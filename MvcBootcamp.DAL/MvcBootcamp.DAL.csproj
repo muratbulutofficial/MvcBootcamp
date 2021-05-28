@@ -56,6 +56,7 @@
     <Compile Include="Abstract\IContactFormDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadlineDal.cs" />
+    <Compile Include="Abstract\IUserLevelDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfAuthorDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContactFormDal.cs" />
@@ -63,28 +64,12 @@
     <Compile Include="Concrete\EntityFramework\Context.cs" />
     <Compile Include="Concrete\EntityFramework\EfHeadlineDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfEntityRepositoryBase.cs" />
-    <Compile Include="Migrations\202105142122519_mig_author_edit.cs" />
-    <Compile Include="Migrations\202105142122519_mig_author_edit.designer.cs">
-      <DependentUpon>202105142122519_mig_author_edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105201417275_mig_addtable_userlevel.cs" />
-    <Compile Include="Migrations\202105201417275_mig_addtable_userlevel.designer.cs">
-      <DependentUpon>202105201417275_mig_addtable_userlevel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Concrete\EntityFramework\EfUserLevelDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105142122519_mig_author_edit.resx">
-      <DependentUpon>202105142122519_mig_author_edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105201417275_mig_addtable_userlevel.resx">
-      <DependentUpon>202105201417275_mig_addtable_userlevel.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj">

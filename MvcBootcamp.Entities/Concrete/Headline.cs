@@ -16,7 +16,7 @@ namespace MvcBootcamp.Entities.Concrete
 
         public int Id { get; set; }
         public int CategoryId { get; set; }
-        public int? AuthorId { get; set; }
+        public int AuthorId { get; set; }
         public string Text { get; set; }
         public DateTime CreationDate { get; set; }
         public virtual Category Category { get; set; }

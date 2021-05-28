@@ -92,11 +92,13 @@
     <Compile Include="Abstract\IContactFormService.cs" />
     <Compile Include="Abstract\IContentService.cs" />
     <Compile Include="Abstract\IHeadlineService.cs" />
+    <Compile Include="Abstract\IUserLevelService.cs" />
     <Compile Include="Concrete\AuthorManager.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\ContactFormManager.cs" />
     <Compile Include="Concrete\ContentManager.cs" />
     <Compile Include="Concrete\HeadlineManager.cs" />
+    <Compile Include="Concrete\UserLevelManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\InstanceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

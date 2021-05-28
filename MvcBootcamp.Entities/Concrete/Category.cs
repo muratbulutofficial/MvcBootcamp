@@ -17,7 +17,8 @@ namespace MvcBootcamp.Entities.Concrete
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public bool Status { get; set; }
+        public byte Sorting { get; set; }
+        public bool IsActive { get; set; }
         public List<Headline> Headlines { get; set; }
     }
 }

@@ -25,7 +25,9 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
             modelBuilder.Entity<Author>().Property(c => c.EMail).HasMaxLength(150).IsRequired();
             modelBuilder.Entity<Author>().Property(c => c.Password).HasMaxLength(150).IsRequired();
             modelBuilder.Entity<Author>().Property(c => c.PasswordSalt).HasMaxLength(100).IsRequired();
-            modelBuilder.Entity<Author>().Property(c => c.About).HasMaxLength(100).IsOptional();
+            modelBuilder.Entity<Author>().Property(c => c.About).HasMaxLength(200).IsOptional();
+            modelBuilder.Entity<Author>().Property(c => c.IpAddress).HasMaxLength(15).IsRequired();
+
 
             modelBuilder.Entity<Category>().Property(c => c.Name).HasMaxLength(30).IsRequired();
             modelBuilder.Entity<Category>().Property(c => c.Description).HasMaxLength(100).IsOptional();
