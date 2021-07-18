@@ -14,7 +14,7 @@ namespace MvcBootcamp.Entities.Concrete
             Authors = new List<Author>();
         }
         public byte Id { get; set; }
-        public string Level { get; set; }
+        public string LevelName { get; set; }
         public List<Author> Authors { get; set; }
     }
 }

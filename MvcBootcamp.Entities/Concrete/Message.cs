@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace MvcBootcamp.Entities.Concrete
 {
-    public class ContactForm : IEntity
+    public class Message : IEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string  Name { get; set; }
+        public string Surname { get; set; }
         public string EMail { get; set; }
         public string Subject { get; set; }
-        public string Message { get; set; }
+        public string Text { get; set; }
+        public bool isRead { get; set; }
         public DateTime DateTime { get; set; }
     }
 }

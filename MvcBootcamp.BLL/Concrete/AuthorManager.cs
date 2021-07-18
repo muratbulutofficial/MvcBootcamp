@@ -1,6 +1,9 @@
-﻿using MvcBootcamp.BLL.Abstract;
+﻿using Core.Aspects.PostSharp.Validation;
+using MvcBootcamp.BLL.Abstract;
+using MvcBootcamp.BLL.ValidationRules.FluentValidation;
 using MvcBootcamp.DAL.Concrete.EntityFramework;
 using MvcBootcamp.Entities.Concrete;
+using MvcBootcamp.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +19,30 @@ namespace MvcBootcamp.BLL.Concrete
         {
             _authorDal = authorDal;
         }
+        [ValidationAspect(typeof(AuthorValidator))]
+        public void Add(Author author)
+        {
+            _authorDal.Add(author);
+        }
+
+        public List<AuthorDetailDto> GetAuthorDetail()
+        {
+            return _authorDal.GetAuthorDetails().OrderByDescending(x => x.AuthorId).ToList();
+        }
+
         public List<Author> GetList()
         {
-            return _authorDal.Getlist();
+            return _authorDal.Getlist().OrderByDescending(x=>x.Id).ToList();
+        }
+        
+        public bool PanelLogin(Author author)
+        {
+            return _authorDal.PanelLogin(author);
+        }
+
+        public void SetStatus(int id)
+        {
+            _authorDal.SetStatus(id);
         }
     }
 }

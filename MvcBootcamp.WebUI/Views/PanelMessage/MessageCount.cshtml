@@ -1,0 +1,38 @@
+﻿@using MvcBootcamp.Entities.Concrete
+@model List<Message>
+
+
+<li id="header_inbox_bar" class="dropdown">
+    <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+        <i style="color:white" class="fa fa-envelope-o"></i>
+        @if (ViewBag.Count!=0)
+        {
+            <span class="badge bg-theme04">@ViewBag.Count</span>
+        }
+    </a>
+    <ul class="dropdown-menu extended inbox">
+        <div class="notify-arrow notify-arrow-green"></div>
+        <li>
+            <p class="green">@ViewBag.Count okunmamış mesaj.</p>
+        </li>
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="/PanelMessage/Read/@item.Id">
+                    <span class="photo"><img alt="avatar" src="~/Content/img/bg-avatar.png"></span>
+                    <span class="subject">
+                        <span class="from">@item.Name @item.Surname</span>
+                    </span>
+                    <span class="message">
+                        @item.Subject.Substring(0, 16) ...
+                        <span class="time">@item.DateTime.ToShortDateString() @item.DateTime.ToShortTimeString()</span>
+
+                    </span>
+                </a>
+            </li>
+        }
+        <li>
+            <a href="/PanelMessage/GetList/">Tüm mesajlar...</a>
+        </li>
+    </ul>
+</li>

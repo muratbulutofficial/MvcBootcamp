@@ -25,7 +25,12 @@ namespace MvcBootcamp.WebUI
                 url: "login",
                 defaults: new { controller = "Login", action = "Index" }
             );
-            
+            routes.MapRoute(
+                name: "Logout",
+                url: "logout",
+                defaults: new { controller = "Login", action = "Logout" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace MvcBootcamp.DAL.Abstract
 {
-   public interface IContactFormDal:IRepository<ContactForm>
+   public interface IMessageDal:IRepository<Message>
     {
+        void SetRead(int id);
     }
 }

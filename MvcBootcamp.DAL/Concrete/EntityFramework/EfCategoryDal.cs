@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace MvcBootcamp.DAL.Concrete.EntityFramework
 {
-    public class EfCategoryDal : EfEntityRepositoryBase<Category, Context>, ICategoryDal
+    public class EfCategoryDal : EfEntityRepositoryBase<Category, MvcBootcampContext>, ICategoryDal
     {
         public void SetStatus(int id)
         {
-            using (Context context = new Context())
+            using (MvcBootcampContext context = new MvcBootcampContext())
             {
                 var entity = context.Categories.SingleOrDefault(x=>x.Id==id);
 
-                if (entity.Status == true)
-                    entity.Status = false;
+                if (entity.IsActive == true)
+                    entity.IsActive = false;
                 else
-                    entity.Status = true;
+                    entity.IsActive = true;
 
 
                 context.SaveChanges();

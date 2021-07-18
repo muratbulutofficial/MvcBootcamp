@@ -1,5 +1,6 @@
 ﻿using Core.DataAccess;
 using MvcBootcamp.Entities.Concrete;
+using MvcBootcamp.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,9 @@ namespace MvcBootcamp.DAL.Abstract
 {
     public interface IAuthorDal:IRepository<Author>
     {
+        List<AuthorDetailDto> GetAuthorDetails();
+        void SetStatus(int id);
+
+        bool PanelLogin(Author author);
     }
 }

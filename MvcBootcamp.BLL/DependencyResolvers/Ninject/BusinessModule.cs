@@ -23,14 +23,17 @@ namespace MvcBootcamp.BLL.DependencyResolvers.Ninject
             Bind<IAuthorService>().To<AuthorManager>().InSingletonScope();
             Bind<IAuthorDal>().To<EfAuthorDal>().InSingletonScope();
 
-            Bind<IContactFormService>().To<ContactFormManager>().InSingletonScope();
-            Bind<IContactFormDal>().To<EfContactFormDal>().InSingletonScope();
+            Bind<IMessageService>().To<MessageManager>().InSingletonScope();
+            Bind<IMessageDal>().To<EfMessageDal>().InSingletonScope();
 
             Bind<IContentService>().To<ContentManager>().InSingletonScope();
             Bind<IContentDal>().To<EfContentDal>().InSingletonScope();
 
             Bind<IHeadlineService>().To<HeadlineManager>().InSingletonScope();
             Bind<IHeadlineDal>().To<EfHeadlineDal>().InSingletonScope();
+
+            Bind<ISkillService>().To<SkillManager>().InSingletonScope();
+            Bind<ISkillDal>().To<EfSkillDal>().InSingletonScope();
         }
     }
 }

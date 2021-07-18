@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace MvcBootcamp.DAL.Concrete.EntityFramework
 {
-    public class EfContentDal : EfEntityRepositoryBase<Content, Context>, IContentDal
+    public class EfContentDal : EfEntityRepositoryBase<Content, MvcBootcampContext>, IContentDal
     {
         public List<ContentDetailDto> GetContentDetails()
         {
-            using (Context context =new Context()) 
+            using (MvcBootcampContext context =new MvcBootcampContext()) 
             {
                 var result = from c in context.Contents
                              join a in context.Authors
@@ -25,6 +25,7 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
                                  ContentId = c.Id,
                                  AuthorName = a.Nickname,
                                  HeadlineName = h.Text,
+                                 CategoryName=h.Category.Name,
                                  ContentText = c.Text,
                                  CreationDate = c.CreationDate
                              };

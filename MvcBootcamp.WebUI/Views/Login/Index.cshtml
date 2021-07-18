@@ -29,7 +29,7 @@
 <body id="login-body">
         <div id="login-page">
             <div class="container">
-                <form class="form-login" action="/Login/Index">
+                <form class="form-login" action="/login" method="post">
                     <h2 class="form-login-heading">Mvc Bootcamp V.1.1</h2>
                     <div class="login-wrap">
                         @if (ViewBag.ErrorMessage != null)
@@ -40,20 +40,20 @@
                             </div>
                         }
 
-                        <input type="text" class="form-control" placeholder="E-mail adresinizi yazınız">
+                        <input type="email" class="form-control" name="EMail" placeholder="E-mail adresinizi yazınız" required>
                         <br>
-                        <input type="password" class="form-control" placeholder="Şifrenizi adresinizi yazınız">
-                        <label class="checkbox">
+                        <input type="password" class="form-control" name="Password" placeholder="Şifrenizi yazınız" required>
+                        @*<label class="checkbox">
                             <span class="pull-right">
                                 <a data-toggle="modal" href="login.html#myModal"> Şifreni mi unuttun?</a>
                             </span>
-                        </label>
-                        <button class="btn-login" type="submit">Giriş Yap</button>
+                        </label>*@
+                        <button class="btn-login" style="margin-top:20px;" type="submit">Giriş Yap</button>
 
                     </div>
 
                     <!-- Modal -->
-                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                    <!--<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header" style="background: rgba(38,43,54,.9);">
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- modal -->
 
                 </form>

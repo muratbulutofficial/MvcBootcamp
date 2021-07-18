@@ -53,18 +53,33 @@
   <ItemGroup>
     <Compile Include="Abstract\IAuthorDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
-    <Compile Include="Abstract\IContactFormDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadlineDal.cs" />
+    <Compile Include="Abstract\ISkillDal.cs" />
     <Compile Include="Abstract\IUserLevelDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfAuthorDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
-    <Compile Include="Concrete\EntityFramework\EfContactFormDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfMessageDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
-    <Compile Include="Concrete\EntityFramework\Context.cs" />
+    <Compile Include="Concrete\EntityFramework\EfSkillDal.cs" />
+    <Compile Include="Concrete\EntityFramework\MvcBootcampContext.cs" />
     <Compile Include="Concrete\EntityFramework\EfHeadlineDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfEntityRepositoryBase.cs" />
     <Compile Include="Concrete\EntityFramework\EfUserLevelDal.cs" />
+    <Compile Include="Migrations\202107061013573_mig_headline_isactive.cs" />
+    <Compile Include="Migrations\202107061013573_mig_headline_isactive.designer.cs">
+      <DependentUpon>202107061013573_mig_headline_isactive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107062118550_mig_add_skill.cs" />
+    <Compile Include="Migrations\202107062118550_mig_add_skill.designer.cs">
+      <DependentUpon>202107062118550_mig_add_skill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107171112176_mig_message-edit.cs" />
+    <Compile Include="Migrations\202107171112176_mig_message-edit.designer.cs">
+      <DependentUpon>202107171112176_mig_message-edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +95,17 @@
       <Project>{3abb4779-af2e-4b85-81a6-b0a598fc61a4}</Project>
       <Name>MvcBootcamp.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202107061013573_mig_headline_isactive.resx">
+      <DependentUpon>202107061013573_mig_headline_isactive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107062118550_mig_add_skill.resx">
+      <DependentUpon>202107062118550_mig_add_skill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107171112176_mig_message-edit.resx">
+      <DependentUpon>202107171112176_mig_message-edit.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

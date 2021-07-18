@@ -1,6 +1,6 @@
-﻿//Remove alert
+﻿//Remove Category alert
 $(document).ready(function () {
-    $(".btnRemove").click(function () {
+    $(".btnRemoveCategory").click(function () {
         swal({
             title: "Silmek istediğinize emin misiniz?",
             text: "Bu işlem geri alınamaz!",
@@ -31,9 +31,9 @@ $(document).ready(function () {
     });
 });
 
-//status change
+//status change Category
 $(document).ready(function () {
-    $('.btnStatus').click(function (event) {
+    $('.btnStatusCategory').click(function (event) {
         var ID = $(this).attr("id");  //id değerini alıyoruz
         $.ajax({
             type: 'POST',
@@ -47,6 +47,46 @@ $(document).ready(function () {
             }
         });
        
+
+    });
+});
+
+//status change Headline
+$(document).ready(function () {
+    $('.btnStatusHeadline').click(function (event) {
+        var ID = $(this).attr("id");  //id değerini alıyoruz
+        $.ajax({
+            type: 'POST',
+            url: '/PanelHeadline/SetStatus/' + ID,  //işlem yaptığımız sayfayı belirtiyoruz
+            dataType: 'json',
+            success: function () {
+                location.reload();
+            },
+            error: function () {
+                alert('Hata oluştu.');
+            }
+        });
+
+
+    });
+});
+
+//status change Author
+$(document).ready(function () {
+    $('.btnStatusAuthor').click(function (event) {
+        var ID = $(this).attr("id");  //id değerini alıyoruz
+        $.ajax({
+            type: 'POST',
+            url: '/PanelAuthor/SetStatus/' + ID,  //işlem yaptığımız sayfayı belirtiyoruz
+            dataType: 'json',
+            success: function () {
+                location.reload();
+            },
+            error: function () {
+                alert('Hata oluştu.');
+            }
+        });
+
 
     });
 });

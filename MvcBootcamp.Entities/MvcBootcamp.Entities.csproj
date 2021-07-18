@@ -43,11 +43,14 @@
   <ItemGroup>
     <Compile Include="Concrete\Author.cs" />
     <Compile Include="Concrete\Category.cs" />
-    <Compile Include="Concrete\ContactForm.cs" />
+    <Compile Include="Concrete\Message.cs" />
     <Compile Include="Concrete\Content.cs" />
     <Compile Include="Concrete\Headline.cs" />
+    <Compile Include="Concrete\Skill.cs" />
     <Compile Include="Concrete\UserLevel.cs" />
+    <Compile Include="DTOs\AuthorDetailDto.cs" />
     <Compile Include="DTOs\ContentDetailDto.cs" />
+    <Compile Include="DTOs\HeadlineDetailDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

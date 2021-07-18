@@ -13,10 +13,12 @@ namespace MvcBootcamp.Entities.Concrete
         {
             Contents = new List<Content>();
             Headlines = new List<Headline>();
+            RegisterDate = DateTime.Now;
+            LastLoginDate = DateTime.Now;
         }
 
         public int Id { get; set; }
-        public byte UserLevelId { get; set; }
+        public byte? UserLevelId { get; set; }
         public string Nickname { get; set; }
         public string Image { get; set; }
         public string EMail { get; set; }

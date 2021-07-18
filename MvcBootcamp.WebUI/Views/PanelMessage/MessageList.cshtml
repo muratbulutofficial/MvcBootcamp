@@ -1,0 +1,20 @@
+﻿@using MvcBootcamp.Entities.Concrete
+@model List<Message>
+
+@foreach (var item in Model)
+{
+
+    <div class="chat_list"> 
+        <a href="/PanelMessage/Read/@item.Id">
+            <div class="chat_people">
+                <div class="chat_img"> <img src="~/Content/img/bg-avatar.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                    <h5>@item.Name @item.Surname <span class="chat_date">@item.DateTime.ToShortDateString() @item.DateTime.ToShortTimeString()</span></h5>
+                    <p>
+                        @item.Subject
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+}

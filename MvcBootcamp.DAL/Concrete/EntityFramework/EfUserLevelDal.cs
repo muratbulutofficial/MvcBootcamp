@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MvcBootcamp.DAL.Concrete.EntityFramework
 {
-   public class EfUserLevelDal:EfEntityRepositoryBase<UserLevel,Context>,IUserLevelDal
+   public class EfUserLevelDal:EfEntityRepositoryBase<UserLevel,MvcBootcampContext>,IUserLevelDal
     {
     }
 }

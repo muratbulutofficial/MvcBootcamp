@@ -1,0 +1,52 @@
+﻿@model  MvcBootcamp.Entities.Concrete.Author
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+<div class="row mt">
+    <div class="col-md-12">
+        <div class="page-content">
+            @using (Html.BeginForm("Add", "PanelAuthor", FormMethod.Post))
+            {
+                <div class="page-content-header">
+
+                    <i class="fa fa-list icon-margin"></i> <span>YAZAR EKLE</span>
+                    <button class="btn btn-success btn-xs" style="float:right;margin-top:0;border:1px solid #d3d3d3;"><i class="fa fa-save"></i> Kaydet</button>
+                </div>
+                <div style="clear:both;"></div>
+                <div class="content-panel" style="padding:10px 10px 10px 10px;">
+
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        <label>Kullanıcı Adı</label>
+                        @Html.TextBoxFor(x => x.Nickname, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Nickname, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>E-Mail</label>
+                        @Html.TextBoxFor(x => x.EMail, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.EMail, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control",@type="Password" })
+                        @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        @Html.TextBoxFor(x => x.PasswordSalt, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PasswordSalt, null, new { @class = "text-danger" })
+                    </div>
+                    @Html.HiddenFor(x=>x.UserLevelId,new { @Value=3})
+                    @Html.HiddenFor(x=>x.IsActive,new { @Value=true})
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+

@@ -12,7 +12,7 @@
     <meta name="author" content="@ViewBag.Author">
     <meta name="keyword" content="@ViewBag.Keyword">
 
-    <title>@ViewBag.Title</title>
+    <title>MVC BOOTCAMP V.1.1</title>
 
     <!-- Bootstrap core CSS -->
     <link href="~/Content/css/bootstrap.css" rel="stylesheet">
@@ -42,114 +42,20 @@
             <!--logo start-->
             <a href="#" class="logo"><b>Mvc Bootcamp V.1.1</b></a>
             <!--logo end-->
-            <!--<div class="nav notify-row" id="top_menu">-->
-            <!--  notification start -->
-            <!--<ul class="nav top-menu">-->
-            <!-- settings start -->
-            <!--<li class="dropdown" >
-                <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#" >
-                    <i class="fa fa-tasks"></i>
-                    <span class="badge bg-theme">4</span>
-                </a>
-                <ul class="dropdown-menu extended tasks-bar">
-                    <div class="notify-arrow notify-arrow-green"></div>
-                    <li>
-                        <p class="green">You have 4 pending tasks</p>
-                    </li>
-                    <li>
-                        <a href="index.html#">
-                            <div class="task-info">
-                                <div class="desc">DashGum Admin Panel</div>
-                                <div class="percent">40%</div>
-                            </div>
-                            <div class="progress progress-striped">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                    <span class="sr-only">40% Complete (success)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="index.html#">
-                            <div class="task-info">
-                                <div class="desc">Database Update</div>
-                                <div class="percent">60%</div>
-                            </div>
-                            <div class="progress progress-striped">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                    <span class="sr-only">60% Complete (warning)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="index.html#">
-                            <div class="task-info">
-                                <div class="desc">Product Development</div>
-                                <div class="percent">80%</div>
-                            </div>
-                            <div class="progress progress-striped">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                    <span class="sr-only">80% Complete</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="index.html#">
-                            <div class="task-info">
-                                <div class="desc">Payments Sent</div>
-                                <div class="percent">70%</div>
-                            </div>
-                            <div class="progress progress-striped">
-                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                                    <span class="sr-only">70% Complete (Important)</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="external">
-                        <a href="#">See All Tasks</a>
-                    </li>
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                <ul class="nav top-menu">
+                    <!-- inbox dropdown start-->
+                    @Html.Action("MessageCount", "PanelMessage")
+                    <!-- inbox dropdown end -->
                 </ul>
-            </li>-->
-            <!-- settings end -->
-            <!-- inbox dropdown start-->
-            <!--<li id="header_inbox_bar" class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-theme">1</span>
-                </a>
-                <ul class="dropdown-menu extended inbox">
-                    <div class="notify-arrow notify-arrow-green"></div>
-                    <li>
-                        <p class="green">1 adet yeni mesaj</p>
-                    </li>
-                    <li>
-                        <a href="index.html#">
-                            <span class="photo"><img alt="avatar" src="~/Content/img/ui-zac.jpg"></span>
-                            <span class="subject">
-                                <span class="from">Obi Wan Kenobi</span>
-                                <span class="time">şimdi</span>
-                            </span>
-                            <span class="message">
-                                Selam, nasılsın?
-                            </span>
-                        </a>
-                    </li>
+                <!--  notification end -->
+            </div>
 
-                    <li>
-                        <a href="index.html#">Tüm mesajlar..</a>
-                    </li>
-                </ul>
-            </li>-->
-            <!-- inbox dropdown end -->
-            <!--</ul>-->
-            <!--  notification end -->
-            <!--</div>-->
+
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="/login"><i class="fa fa-power-off icon-margin" style="font-size:14px;"></i>Güvenli çıkış</a></li>
+                    <li><button onclick="window.location.href='/logout'" class="logout"><i class="fa fa-power-off icon-margin" style="font-size:14px;"></i>Güvenli çıkış</button></li>
                 </ul>
             </div>
         </header>
@@ -170,9 +76,15 @@
                             <span>Gösterge Paneli</span>
                         </a>
                     </li>
+                    <li class="sub-menu">
+                        <a href="/Panel/Skill/">
+                            <i class="fa fa-bookmark"></i>
+                            <span>Yetenek Kartı</span>
+                        </a>
+                    </li>
 
                     <li class="sub-menu">
-                        <a href="/PanelCategory/GetList">
+                        <a href="/PanelCategory/GetList/">
                             <i class="fa fa-th"></i>
                             <span>Kategoriler</span>
                         </a>
@@ -180,22 +92,22 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:;">
+                        <a href="/PanelHeadline/GetList/">
                             <i class="fa fa-header"></i>
                             <span>Başlıklar</span>
                         </a>
 
                     </li>
                     <li class="sub-menu">
-                        <a href="/PanelAuthor/GetList">
-                            <i class="fa fa-book"></i>
+                        <a href="/PanelAuthor/GetList/">
+                            <i class="fa fa-user"></i>
                             <span>Yazarlar</span>
                         </a>
 
                     </li>
 
                     <li class="sub-menu">
-                        <a href="/PanelContent/GetList">
+                        <a href="/PanelContent/GetList/">
                             <i class="fa fa-pencil-square-o"></i>
                             <span>Yazılar</span>
                         </a>
@@ -276,6 +188,7 @@
     @RenderSection("HomePageScripts", false)
     @RenderSection("OperationScripts", false)
     @RenderSection("Ckeditor", false)
+    @RenderSection("Skill", false)
 
     <!--common script for all pages-->
     <script src="~/Scripts/common-scripts.js"></script>

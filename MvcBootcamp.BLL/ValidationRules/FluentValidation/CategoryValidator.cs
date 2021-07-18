@@ -15,7 +15,7 @@ namespace MvcBootcamp.BLL.ValidationRules.FluentValidation
             RuleFor(x => x.Name).NotEmpty().WithMessage("Kategori adı giriniz.");
             RuleFor(x => x.Name).Length(3,30).WithMessage("Kategori adı 3 - 30 karakter arası olmalıdır.");
             RuleFor(x => x.Description).MaximumLength(100).WithMessage("Açıklama en fazla 100 karakter olmalıdır.");
-            RuleFor(x => x.Status).NotEmpty().WithMessage("Kategori durumu seçiniz.");
+            RuleFor(x => x.IsActive).NotEmpty().WithMessage("Kategori durumu seçiniz.");
         }
     }
 }

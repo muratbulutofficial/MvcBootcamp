@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcBootcamp.WebUI.Controllers
 {
+    [Authorize]
     public class PanelContentController : Controller
     {
         // GET: PanelContent

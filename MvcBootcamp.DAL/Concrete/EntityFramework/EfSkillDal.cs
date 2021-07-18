@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MvcBootcamp.DAL.Concrete.EntityFramework
 {
-    public class EfContactFormDal: EfEntityRepositoryBase<ContactForm, Context>, IContactFormDal
+   public class EfSkillDal:EfEntityRepositoryBase<Skill,MvcBootcampContext>,ISkillDal
     {
     }
 }

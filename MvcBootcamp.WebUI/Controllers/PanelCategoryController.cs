@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace MvcBootcamp.WebUI.Controllers
 {
+    [Authorize]
     public class PanelCategoryController : Controller
     {
         public PanelCategoryController()
@@ -27,6 +28,7 @@ namespace MvcBootcamp.WebUI.Controllers
         {
             return View(_categoryService.GetList());
         }
+        
         [HttpGet]
         public ActionResult Add()
         {
