@@ -19,6 +19,7 @@ namespace MvcBootcamp.Entities.Concrete
         public int? AuthorId { get; set; }
         public string Text { get; set; }
         public bool isActive { get; set; }
+        public string SeoUrl { get; set; }
         public DateTime CreationDate { get; set; }
         public virtual Category Category { get; set; }
         public virtual Author Author { get; set; }

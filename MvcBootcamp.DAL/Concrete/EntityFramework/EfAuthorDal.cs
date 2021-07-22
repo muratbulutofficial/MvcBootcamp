@@ -36,7 +36,7 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
 
         }
 
-        public bool PanelLogin(Author author)
+        public bool Login(Author author)
         {
             using (MvcBootcampContext context = new MvcBootcampContext())
             {

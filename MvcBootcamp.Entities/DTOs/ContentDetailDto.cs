@@ -11,6 +11,8 @@ namespace MvcBootcamp.Entities.DTOs
     {
         public int ContentId { get; set; }
         public string AuthorName { get; set; }
+        public int HeadlineId { get; set; }
+        public string HeadlineSeoUrl { get; set; }
         public string HeadlineName { get; set; }
         public string CategoryName { get; set; }
         public string ContentText { get; set; }

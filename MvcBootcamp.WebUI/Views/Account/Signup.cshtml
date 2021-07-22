@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="login-page">
+    <div class="container">
+        <form class="form-login" action="/kayit" method="post">
+            <h2 class="form-login-heading">E-Sözlük</h2>
+            <div class="login-wrap">
+                <input type="text" class="form-control" name="Nickname" placeholder="Kullanıcı Adı" required>
+                <br>
+                <input type="email" class="form-control" name="EMail" placeholder="E-mail" required>
+                <br>
+                <input type="password" class="form-control" name="Password" placeholder="Şifre" required>
+
+                <input type="hidden" name="UserLevelId" value="2">
+                <input type="hidden" name="isActive" value="true">
+
+                <button class="btn-login" style="margin-top:20px;" type="submit">Kayıt Ol</button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+</div>
+
+

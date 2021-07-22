@@ -14,6 +14,6 @@ namespace MvcBootcamp.DAL.Abstract
         List<AuthorDetailDto> GetAuthorDetails();
         void SetStatus(int id);
 
-        bool PanelLogin(Author author);
+        bool Login(Author author);
     }
 }

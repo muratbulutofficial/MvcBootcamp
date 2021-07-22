@@ -25,7 +25,7 @@ namespace MvcBootcamp.BLL.Concrete
 
         public List<Headline> GetList()
         {
-            return _headlineDal.Getlist();
+            return _headlineDal.Getlist().OrderByDescending(x => x.Id).ToList();
         }
 
         public void SetStatus(int id)

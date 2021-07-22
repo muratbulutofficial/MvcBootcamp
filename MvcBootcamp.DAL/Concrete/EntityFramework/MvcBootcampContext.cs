@@ -25,7 +25,7 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
             modelBuilder.Entity<Author>().Property(c => c.Image).HasMaxLength(100).IsOptional();
             modelBuilder.Entity<Author>().Property(c => c.EMail).HasMaxLength(150).IsRequired();
             modelBuilder.Entity<Author>().Property(c => c.Password).HasMaxLength(300).IsRequired();
-            modelBuilder.Entity<Author>().Property(c => c.PasswordSalt).HasMaxLength(150).IsRequired();
+            modelBuilder.Entity<Author>().Property(c => c.PasswordSalt).HasMaxLength(150).IsOptional();
             modelBuilder.Entity<Author>().Property(c => c.About).HasMaxLength(200).IsOptional();
             modelBuilder.Entity<Author>().Property(c => c.IpAddress).HasMaxLength(15).IsOptional();
             modelBuilder.Entity<Author>().Property(c => c.LastLoginDate).IsOptional();
@@ -33,11 +33,13 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
             modelBuilder.Entity<Author>().Property(c => c.IsActive).IsOptional();
 
             modelBuilder.Entity<Category>().Property(c => c.Name).HasMaxLength(30).IsRequired();
+            modelBuilder.Entity<Category>().Property(c => c.SeoUrl).HasMaxLength(150).IsRequired();
             modelBuilder.Entity<Category>().Property(c => c.Description).HasMaxLength(100).IsOptional();
 
             modelBuilder.Entity<Content>().Property(c => c.Text).HasMaxLength(1000).IsRequired();
 
             modelBuilder.Entity<Headline>().Property(c => c.Text).HasMaxLength(150).IsRequired();
+            modelBuilder.Entity<Headline>().Property(c => c.SeoUrl).HasMaxLength(300).IsRequired();
 
             modelBuilder.Entity<UserLevel>().Property(c => c.LevelName).HasMaxLength(10).IsRequired();
 

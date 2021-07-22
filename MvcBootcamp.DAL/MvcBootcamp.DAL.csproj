@@ -79,6 +79,14 @@
     <Compile Include="Migrations\202107171112176_mig_message-edit.designer.cs">
       <DependentUpon>202107171112176_mig_message-edit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107221919418_mig_headline_seourl.cs" />
+    <Compile Include="Migrations\202107221919418_mig_headline_seourl.designer.cs">
+      <DependentUpon>202107221919418_mig_headline_seourl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107221931031_mig_category_seourl.cs" />
+    <Compile Include="Migrations\202107221931031_mig_category_seourl.designer.cs">
+      <DependentUpon>202107221931031_mig_category_seourl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -105,6 +113,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107171112176_mig_message-edit.resx">
       <DependentUpon>202107171112176_mig_message-edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107221919418_mig_headline_seourl.resx">
+      <DependentUpon>202107221919418_mig_headline_seourl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107221931031_mig_category_seourl.resx">
+      <DependentUpon>202107221931031_mig_category_seourl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

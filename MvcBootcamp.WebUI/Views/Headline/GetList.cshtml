@@ -1,0 +1,15 @@
+﻿@using MvcBootcamp.Entities.Concrete
+@model List<Headline>
+
+
+@foreach (var item in Model)
+{
+    if (item.isActive)
+    {
+        <li class="sub-menu">
+            <a href="/baslik/@item.SeoUrl">
+                <span>@item.Text</span>
+            </a>
+        </li>
+    }
+}

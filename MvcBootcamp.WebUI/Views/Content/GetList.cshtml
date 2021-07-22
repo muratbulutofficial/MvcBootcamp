@@ -1,0 +1,23 @@
+﻿@using MvcBootcamp.Entities.DTOs
+@model List<ContentDetailDto>
+
+
+<div class="right">
+    @foreach (var item in Model)
+    {
+
+        <h3 style="margin-left:5%;">@item.HeadlineName</h3>
+
+        <article>
+
+            <p>@item.ContentText</p>
+
+            <div class="tags">
+                <p class="date">@item.CreationDate.ToShortDateString() @item.CreationDate.ToShortTimeString() ~ <span>@item.AuthorName</span></p>
+
+            </div>
+        </article>
+    }
+
+</div>
+

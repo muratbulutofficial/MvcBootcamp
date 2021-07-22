@@ -38,7 +38,7 @@
                                 <h5 style="float:left;">
                                     <b>@item.AuthorName</b>
 
-                                </h5><button class="btn btn-default btn-xs" style="float:right;margin-top:5px;"><i class="fa fa-cog icon-margin" style="color:black;"></i>Düzenle</button>
+                                </h5><a href="/PanelAuthor/Update/@item.AuthorId" class="btn btn-default btn-xs" style="float:right;margin-top:5px;"><i class="fa fa-cog icon-margin" style="color:black;"></i>Düzenle</a>
                                 <div class="clear"></div>
                             </div>
                             <p><img src="~/Content/img/bg-avatar.png" class="img-circle" width="50"></p>
@@ -72,7 +72,7 @@
                                 {
                                     <button id="@item.AuthorId" class="btn btn-danger btn-xs btnStatusAuthor" style="width:70px;">Pasif</button>
                                 }
-                                <a href="#" class="btn btn-default btn-xs" style="width:70px;"><i class="fa fa-pencil icon-margin" style="color:black;"></i>Yazılar</a>
+                                <a href="/PanelContent/Writings/@item.AuthorId" class="btn btn-default btn-xs" style="width:70px;"><i class="fa fa-pencil icon-margin" style="color:black;"></i>Yazılar</a>
                             </div>
                         </div>
                     </div><!-- /user-panel -->

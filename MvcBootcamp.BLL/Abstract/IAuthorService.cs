@@ -13,8 +13,9 @@ namespace MvcBootcamp.BLL.Abstract
         List<Author> GetList();
         List<AuthorDetailDto> GetAuthorDetail();
         void Add(Author author);
+        void Update(Author author);
         void SetStatus(int id);
-        bool PanelLogin(Author author);
+        bool Login(Author author);
 
     }
 }

@@ -24,6 +24,8 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
                              {
                                  ContentId = c.Id,
                                  AuthorName = a.Nickname,
+                                 HeadlineId=h.Id,
+                                 HeadlineSeoUrl=h.SeoUrl,
                                  HeadlineName = h.Text,
                                  CategoryName=h.Category.Name,
                                  ContentText = c.Text,

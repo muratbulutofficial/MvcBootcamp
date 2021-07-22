@@ -10,5 +10,8 @@ namespace MvcBootcamp.BLL.Abstract
    public interface ISkillService
     {
         List<Skill> GetList();
+        void Add(Skill skill);
+        void Update(Skill skill);
+        void Remove(Skill skill);
     }
 }

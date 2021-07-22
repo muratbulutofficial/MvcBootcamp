@@ -18,7 +18,7 @@ namespace MvcBootcamp.Entities.Concrete
         }
 
         public int Id { get; set; }
-        public byte? UserLevelId { get; set; }
+        public byte UserLevelId { get; set; }
         public string Nickname { get; set; }
         public string Image { get; set; }
         public string EMail { get; set; }

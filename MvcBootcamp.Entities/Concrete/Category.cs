@@ -19,6 +19,7 @@ namespace MvcBootcamp.Entities.Concrete
         public string Description { get; set; }
         public byte Sorting { get; set; }
         public bool IsActive { get; set; }
+        public string SeoUrl { get; set; }
         public List<Headline> Headlines { get; set; }
     }
 }

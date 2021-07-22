@@ -1,0 +1,71 @@
+﻿
+@using MvcBootcamp.Entities.DTOs
+@model List<ContentDetailDto>
+@{
+    ViewBag.Title = "Mvc Bootcamp V.1.1";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
+}
+
+
+<div class="row mt">
+    <div class="col-md-12">
+        <div class="page-content">
+            <div class="page-content-header">
+                <i class="fa fa-list icon-margin"></i> <span>YAZILAR</span>
+            </div>
+            <div class="content-panel" style="padding:10px 10px 10px 10px;">
+
+                <div style="width:100%;height:auto;background:white;padding:10px 0 10px 0;margin-bottom:3px;border-radius:3px;">
+                    <a href="/PanelContent/Add" class="btn btn-primary" style="float:right;"><i class="fa fa-plus"></i> Yeni İçerik</a>
+                    <button class="btn btn-pdf"><i class="fa fa-file-pdf-o" style="color:#d9534f;"></i> Pdf</button>
+                    <button class="btn btn-excel"><i class="fa fa-file-excel-o " style="color:#5cb85c;"></i> Excel</button>
+                    <button class="btn btn-print"><i class="fa fa-print" style="color:black;"></i> Yazdır</button>
+
+                    <button id="RemoveSelected" class="btn btn-danger" style="float:left;display:none;margin-right:10px;"><i class="fa fa-trash-o icon-margin"></i> Seçilenleri Sil</button>
+
+                    <div class="fast-filter">
+                        <input type="text" placeholder="Hızlı Filtreleme" />
+                        <button type="submit">Ara</button>
+                    </div>
+
+                    <div class="clear"></div>
+
+                </div>
+
+                <div class="container py-5" style="width:100%;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-timeline">
+
+                                @foreach (var item in Model)
+                                {
+                                    <div class="timeline">
+                                        <div class="timeline-content">
+                                            <div class="circle">
+                                                <span class="homebox">
+                                                    <img src="~/Content/img/bg-avatar.png" class="img">
+                                                </span>
+                                            </div>
+                                            <div class="content">
+                                                <span class="year">@item.AuthorName</span>
+                                                <div style="width:100%;padding:5px 0 5px 0;text-align:left;color:#ed5565;">Gündem • 2.El araç fiyatları</div>
+                                                <p class="description">
+                                                    @item.ContentText
+                                                </p>
+                                                <div style="width:100%;padding:5px 0 0 0;text-align:right;color:#ed5565;">@item.CreationDate.ToLongDateString()</div>
+
+                                                <div class="icon"><span></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div><!-- /content-panel -->
+        </div><!-- /page-content -->
+    </div><!-- /col-md-12 -->
+</div><!-- /row -->

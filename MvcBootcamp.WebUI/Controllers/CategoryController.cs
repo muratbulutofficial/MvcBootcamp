@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace MvcBootcamp.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class CategoryController : Controller
     {
         // GET: Category
@@ -19,37 +20,10 @@ namespace MvcBootcamp.WebUI.Controllers
             _categoryService = InstanceFactory.GetInstance<ICategoryService>();
         }
         private ICategoryService _categoryService;
-        public ActionResult Index()
-        {
-            return View();
-        }
 
-        public ActionResult GetList()
+        public PartialViewResult GetList()
         {
-            return View(_categoryService.GetList());
-        }
-
-        [HttpGet]
-        public ActionResult Add()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Add(Category category)
-        {
-            try
-            {
-                _categoryService.Add(category);
-                return RedirectToAction("GetList");
-            }
-            catch (Exception exception)
-            {
-                     ModelState.AddModelError("Name",exception.Message );
-            }
-
-            return View();
+            return PartialView(_categoryService.GetList());
         }
     }
 }

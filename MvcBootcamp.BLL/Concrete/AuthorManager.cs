@@ -35,14 +35,19 @@ namespace MvcBootcamp.BLL.Concrete
             return _authorDal.Getlist().OrderByDescending(x=>x.Id).ToList();
         }
         
-        public bool PanelLogin(Author author)
+        public bool Login(Author author)
         {
-            return _authorDal.PanelLogin(author);
+            return _authorDal.Login(author);
         }
 
         public void SetStatus(int id)
         {
             _authorDal.SetStatus(id);
+        }
+        [ValidationAspect(typeof(AuthorValidator))]
+        public void Update(Author author)
+        {
+            _authorDal.Update(author);
         }
     }
 }

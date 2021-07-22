@@ -18,10 +18,7 @@ namespace MvcBootcamp.WebUI.Controllers
         }
         private IAuthorService _authorService;
         // GET: PanelAuthor
-        public ActionResult Index()
-        {
-            return View();
-        }
+      
         public ActionResult GetList()
         {
             return View(_authorService.GetAuthorDetail());
@@ -47,6 +44,29 @@ namespace MvcBootcamp.WebUI.Controllers
 
             return View();
         }
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            var author = _authorService.GetList().FirstOrDefault(x => x.Id.Equals(id));
+            return View("Update",author);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Update(Author author)
+        {
+            try
+            {
+                _authorService.Update(author);
+                return RedirectToAction("GetList");
+            }
+            catch (Exception exception)
+            {
+                ModelState.AddModelError("NickName", exception.Message.Substring(25));
+            }
+
+            return View();
+        }
+
         [HttpPost]
         public JsonResult SetStatus(int id)
         {

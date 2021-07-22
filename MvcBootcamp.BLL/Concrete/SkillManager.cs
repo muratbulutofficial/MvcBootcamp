@@ -21,5 +21,20 @@ namespace MvcBootcamp.BLL.Concrete
         {
             return _skillDal.Getlist();
         }
+
+        public void Add(Skill skill)
+        {
+            _skillDal.Add(skill);
+        }
+
+        public void Update(Skill skill)
+        {
+            _skillDal.Update(skill);
+        }
+
+        public void Remove(Skill skill)
+        {
+            _skillDal.Remove(skill);
+        }
     }
 }

@@ -1,42 +1,137 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="author" content="@ViewBag.Author">
+    <meta name="keyword" content="@ViewBag.Keyword">
+    <link rel="icon" href="~/Content/img/favicon.ico" type="image/x-icon" />
+    <title>E-Sözlük | Bilginin Teknolojik Hali</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/Content/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link href="~/Content/css/style-responsive.css" rel="stylesheet">
+
+    @RenderSection("HomePageCss", false)
+    @RenderSection("SweetAlert", false)
+
+
+
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg" style="background:#424a5d;border-style:none;">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" style="color:white;" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <!--logo start-->
+            <a href="#" class="logo" style="color:whitesmoke;"><b>E-SÖZLÜK</b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+                <!--  notification start -->
+                @Html.Action("GetList", "Category")
+                <!--  notification end -->
+            </div>
+
+
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><button onclick="window.location.href='/giris'" class=" btn btn-danger btn-xs" style="margin-top:20px;margin-right:5px;"><i class="fa fa-sign-in icon-margin" style="font-size:12px;"></i>Giriş Yap</button></li>
+                    <li><button onclick="window.location.href='/kayit'" class=" btn btn-default btn-xs" style="margin-top:20px;"><i class="fa fa-user icon-margin" style="font-size:12px;"></i>Kayıt Ol</button></li>
                 </ul>
             </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        </header>
+        <!--header end-->
+        <!--sidebar start-->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+
+                    @*<p class="centered"><a href="#"><img src="~/Content/img/ui-zac.jpg" class="img-circle" width="60"></a></p>
+                        <h5 class="centered">Admin</h5>*@
+
+                    @Html.Action("GetList", "Headline")
+
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper site-min-height">
+
+                <div class="row mt">
+                    <div class="col-lg-12">
+                        @RenderBody()
+                    </div>
+                </div>
+
+            </section><! --/wrapper -->
+        </section>
+        <!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+        @*<footer class="site-footer">
+                <div class="text-center">
+                    <span style="margin-top:10px;"> Copyright © 2021 Tüm Hakları Saklıdır</span>
+                    <a href="#" class="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+            </footer>*@
+        <!--footer end-->
+    </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="~/Scripts/jquery.ui.touch-punch.min.js"></script>
+    <script class="include" type="text/javascript" src="~/Scripts/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="~/Scripts/jquery.scrollTo.min.js"></script>
+
+    @RenderSection("HomePageScripts", false)
+    @RenderSection("OperationScripts", false)
+    @RenderSection("Ckeditor", false)
+    @RenderSection("Skill", false)
+
+    <!--common script for all pages-->
+    <script src="~/Scripts/common-scripts.js"></script>
+
+    <script>
+        //custom select box
+
+        $(function () {
+            $('select.styled').customSelect();
+        });
+
+    </script>
+
+
 </body>
 </html>
+

@@ -21,14 +21,14 @@ namespace MvcBootcamp.WebUI
             );
 
             routes.MapRoute(
-                name: "Login",
-                url: "login",
-                defaults: new { controller = "Login", action = "Index" }
+                name: "Giriş",
+                url: "giris",
+                defaults: new { controller = "Account", action = "Login" }
             );
             routes.MapRoute(
-                name: "Logout",
-                url: "logout",
-                defaults: new { controller = "Login", action = "Logout" }
+                name: "Çıkış",
+                url: "cikis",
+                defaults: new { controller = "Account", action = "Logout" }
             );
 
             routes.MapRoute(
