@@ -15,13 +15,13 @@
                 <p>Sivas Cumhuriyet Üniversitesi • Yönetim Bilişim Sistemleri</p>
 
             </div>
-            <h3 class="title">Yetenekler <a href="/PanelSkill/Add/" class="btn btn-primary btn-xs"><i class="fa fa-plus icon-margin"></i> Yeni Yetenek Ekle</a></h3>
+            <h3 class="title">Yetenekler <a href="/skill/new" class="btn btn-primary btn-xs"><i class="fa fa-plus icon-margin"></i> Yeni Yetenek Ekle</a></h3>
             <div class="col-md-6 skills-right bar_group" style="width:100%;">
                 @foreach (var item in Model)
                 {
 
                     
-                    <div class='bar_group__bar thin' label='@item.Name &nbsp;&nbsp; @item.Percent%<a href="/PanelSkill/Remove/@item.Id" style="float:right;" class="btn btn-danger btn-xs">Sil</a> <a href="/PanelSkill/Update/@item.Id" style="float:right;margin-right:5px;" class="btn btn-default btn-xs">Düzenle</a> ' value='@item.Value'></div>
+                    <div class='bar_group__bar thin' label='@item.Name &nbsp;&nbsp; @item.Percent%<a href="/skill/remove/@item.Id" style="float:right;" class="btn btn-danger btn-xs">Sil</a> <a href="/skill/update/@item.Id" style="float:right;margin-right:5px;" class="btn btn-default btn-xs">Düzenle</a> ' value='@item.Value'></div>
                 }
             </div>
 

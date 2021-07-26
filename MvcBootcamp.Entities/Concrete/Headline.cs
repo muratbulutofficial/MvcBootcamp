@@ -12,6 +12,7 @@ namespace MvcBootcamp.Entities.Concrete
         public Headline()
         {
             Contents = new List<Content>();
+            CreationDate = DateTime.Now;
         }
 
         public int Id { get; set; }

@@ -35,9 +35,27 @@
                         @Html.TextBoxFor(x => x.Password, new { @class = "form-control",@type="Password" })
                         @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
                     </div>
+                    <div class="form-group">
+                        <label>Kullanıcı Tipi</label>
+                        @Html.DropDownListFor(x => x.UserLevelId,(List<SelectListItem>)ViewBag.UserLevel,"--Seçiniz--", new { @class = "form-control"})
+                        @Html.ValidationMessageFor(x => x.UserLevelId, null, new { @class = "text-danger" })
+                    </div>
                     
-                    @Html.HiddenFor(x=>x.UserLevelId,new { @Value=2})
-                    @Html.HiddenFor(x=>x.IsActive,new { @Value=true})
+                    <div class="form-group">
+                        <label>Durum</label>
+                        @Html.DropDownListFor(x => x.IsActive, new List<SelectListItem> {
+                             new SelectListItem {
+                                Text="Aktif",
+                                Value="true",
+                                Selected = true, 
+                                // Disabled = true  disable olarak gelsin istersek kullanıyoruz
+                             },
+                             new SelectListItem {
+                                Text="Pasif",
+                                Value="false",
+                             }}, "--Seçiniz--", new { @class = "form-control", @style = "margin-top:10px;", @Required = "required" })
+
+                    </div>
                 </div>
             }
         </div>

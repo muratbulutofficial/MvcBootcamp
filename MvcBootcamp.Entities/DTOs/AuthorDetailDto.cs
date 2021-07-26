@@ -12,6 +12,7 @@ namespace MvcBootcamp.Entities.DTOs
         public int AuthorId { get; set; }
         public string AuthorName { get; set; }
         public string AuthorEMail { get; set; }
+        public string AuthorImage { get; set; }
         public string AuthorAbout{ get; set; }
         public string AuthorIpAddress { get; set; }
         public string AuthorLevel{ get; set; }

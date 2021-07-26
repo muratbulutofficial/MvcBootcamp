@@ -1,18 +1,17 @@
-﻿@model  MvcBootcamp.Entities.Concrete.Category
-
+﻿@model MvcBootcamp.Entities.Concrete.Headline
 @{
-    ViewBag.Title = "Mvc Bootcamp V.1.1";
+    ViewBag.Title = "Update";
     Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
 
 <div class="row mt">
     <div class="col-md-12">
         <div class="page-content">
-            @using (Html.BeginForm("Add", "PanelCategory", FormMethod.Post))
+            @using (Html.BeginForm("Update", "PanelHeadline", FormMethod.Post))
             {
                 <div class="page-content-header">
 
-                    <i class="fa fa-list icon-margin"></i> <span>KATEGORİ EKLE</span>
+                    <i class="fa fa-list icon-margin"></i> <span>BAŞLIK GÜNCELLE</span>
                     <button class="btn btn-success btn-xs" style="float:right;margin-top:0;border:1px solid #d3d3d3;"><i class="fa fa-save"></i> Kaydet</button>
                 </div>
                 <div style="clear:both;"></div>
@@ -21,32 +20,27 @@
                     @Html.AntiForgeryToken()
 
                     <div class="form-group">
-                        <label>Kategori Adı</label>
-                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+                        <label>Başlık</label>
+                        @Html.TextBoxFor(x => x.Text, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Text, null, new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        <label>Açıklama</label>
-                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @id = "Description", @style = "height:100px;resize:none", @Maxlength = "100" })
-                        @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group">
-                        <label>Sıra</label>
-                        @Html.TextBoxFor(x => x.Sorting, new { @class = "form-control", @Value = 99 })
+                        <label>Kategori Kodu</label>
+                        @Html.DropDownListFor(k => k.CategoryId, (List<SelectListItem>)ViewBag.Category, "--Seçiniz--", new { @class = "form-control", @Required = "required" })
+                        @Html.ValidationMessageFor(k => k.CategoryId, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         <label>Seo Url</label>
                         @Html.TextBoxFor(x => x.SeoUrl, new { @class = "form-control" })
                         @Html.ValidationMessageFor(x => x.SeoUrl, null, new { @class = "text-danger" })
-
                     </div>
                     <div class="form-group">
                         <label>Durum</label>
-                        @Html.DropDownListFor(x => x.IsActive, new List<SelectListItem> {
+                        @Html.DropDownListFor(x => x.isActive, new List<SelectListItem> {
                              new SelectListItem {
                                 Text="Aktif",
                                 Value="true",
-                                Selected = true,
+                               // Selected = true, seçili olarak gelsin
                                 // Disabled = true  disable olarak gelsin istersek kullanıyoruz
                              },
                              new SelectListItem {
@@ -62,4 +56,5 @@
 
     </div>
 </div>
+
 

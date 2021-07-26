@@ -1,0 +1,53 @@
+﻿@using MvcBootcamp.Entities.DTOs
+@model List<ContentDetailDto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right">
+
+
+    <h3 style="margin-left:5%;color:#de5565;">Yazar Hakkında</h3>
+
+    <div style="width:8%;margin-left:5%;float:left; ">
+        @if (@ViewBag.Image != null)
+        {
+            <img src="@ViewBag.Image" width="72" height="72" />
+        }
+        else
+        {
+            <img src="~/Content/img/bg-avatar.png" width="72" height="72" />
+        }
+    </div>
+
+    <div style="width:85%;float:left;padding-top:15px;padding-bottom:10px;">
+
+        <span style="color:#333333;font-size:16px;font-weight:bold;"> @ViewBag.Nickname</span>
+        <br />
+        <span style="color:#666666;font-size:14px;">@ViewBag.About</span>
+
+    </div>
+
+    <div class="clear"></div>
+
+
+
+    @foreach (var item in Model)
+    {
+
+        <h3 style="margin-left:5%;">@item.HeadlineName</h3>
+
+        <article>
+
+            <p>@item.ContentText</p>
+
+            <div class="tags">
+                <p class="date">@item.CreationDate.ToShortDateString() @item.CreationDate.ToShortTimeString() ~ <a href="/yazar/@item.AuthorName"> <span>@item.AuthorName</span></a></p>
+
+            </div>
+        </article>
+    }
+</div>
+
+

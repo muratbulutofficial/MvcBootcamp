@@ -23,6 +23,7 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
                              select new ContentDetailDto
                              {
                                  ContentId = c.Id,
+                                 AuthorId=a.Id,
                                  AuthorName = a.Nickname,
                                  HeadlineId=h.Id,
                                  HeadlineSeoUrl=h.SeoUrl,

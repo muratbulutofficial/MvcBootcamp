@@ -18,7 +18,6 @@ namespace MvcBootcamp.BLL.ValidationRules.FluentValidation
             RuleFor(x => x.EMail).NotEmpty().WithMessage("Email adresi giriniz.");
             RuleFor(x => x.EMail).EmailAddress().WithMessage("Geçerli bir mail adresi giriniz.").When(x => !string.IsNullOrEmpty(x.EMail));
             RuleFor(x => x.UserLevelId).NotEmpty().WithMessage("Kullanıcı seviyesini giriniz.");
-            RuleFor(x => x.IsActive).NotEmpty().WithMessage("Kullanıcı durumunu giriniz.");
             RuleFor(x => x.Password).NotEmpty().WithMessage("Şifre giriniz.");
             //RuleFor(x => x.Password).Must(IsPasswordValid).WithMessage("Parolanız en az 8 en fazla 20 karakter, en az bir harf ve bir rakam içermelidir!");
         }

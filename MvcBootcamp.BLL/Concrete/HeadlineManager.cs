@@ -1,4 +1,6 @@
-﻿using MvcBootcamp.BLL.Abstract;
+﻿using Core.Aspects.PostSharp.Validation;
+using MvcBootcamp.BLL.Abstract;
+using MvcBootcamp.BLL.ValidationRules.FluentValidation;
 using MvcBootcamp.DAL.Concrete.EntityFramework;
 using MvcBootcamp.Entities.Concrete;
 using MvcBootcamp.Entities.DTOs;
@@ -17,6 +19,16 @@ namespace MvcBootcamp.BLL.Concrete
         {
             _headlineDal = headlineDal;
         }
+        [ValidationAspect(typeof(HeadlineValidator))]
+        public void Add(Headline headline)
+        {
+            _headlineDal.Add(headline);
+        }
+
+        public Headline Find(int id)
+        {
+            return _headlineDal.Find(x=>x.Id.Equals(id));
+        }
 
         public List<HeadlineDetailDto> GetHeadlineDetails()
         {
@@ -28,9 +40,19 @@ namespace MvcBootcamp.BLL.Concrete
             return _headlineDal.Getlist().OrderByDescending(x => x.Id).ToList();
         }
 
+        public void Remove(Headline headline)
+        {
+            _headlineDal.Remove(headline);
+        }
+
         public void SetStatus(int id)
         {
             _headlineDal.SetStatus(id);
+        }
+        [ValidationAspect(typeof(HeadlineValidator))]
+        public void Update(Headline headline)
+        {
+            _headlineDal.Update(headline);
         }
     }
 }

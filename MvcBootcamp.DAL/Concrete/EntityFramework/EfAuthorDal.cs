@@ -23,6 +23,7 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
                                  AuthorId = a.Id,
                                  AuthorName = a.Nickname,
                                  AuthorEMail = a.EMail,
+                                 AuthorImage=a.Image,
                                  AuthorAbout=a.About,
                                  AuthorIpAddress = a.IpAddress,
                                  AuthorLevel = u.LevelName,

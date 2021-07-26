@@ -10,6 +10,7 @@ namespace MvcBootcamp.Entities.DTOs
    public class ContentDetailDto:IDto
     {
         public int ContentId { get; set; }
+        public int AuthorId { get; set; }
         public string AuthorName { get; set; }
         public int HeadlineId { get; set; }
         public string HeadlineSeoUrl { get; set; }

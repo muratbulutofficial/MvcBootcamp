@@ -16,10 +16,7 @@ namespace MvcBootcamp.WebUI.Controllers
         }
         private IMessageService _messageService;
         // GET: PanelMessage
-        public ActionResult Index()
-        {
-            return View();
-        }
+        [Route("message")]
         public ActionResult GetList()
         {
             return View();

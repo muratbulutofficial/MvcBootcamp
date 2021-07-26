@@ -20,24 +20,23 @@ namespace MvcBootcamp.WebUI.Controllers
         private ICategoryService _categoryService;
 
         // GET: PanelCategory
-        public ActionResult Index()
-        {
-            return View();
-        }
+        [Route("category")]
         public ActionResult GetList()
         {
             return View(_categoryService.GetList());
         }
         
         [HttpGet]
+        [Route("category/new")]
         public ActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
+        [Route("category/new")]
         [ValidateAntiForgeryToken]
-        [ValidateInput(false)] //ckeditör ile kayıt eklerken Request.form hatası almamak için kullanılır.
+        //[ValidateInput(false)] //ckeditör ile kayıt eklerken Request.form hatası almamak için kullanılır.
         public ActionResult Add(Category category)
         {
             try
@@ -54,11 +53,13 @@ namespace MvcBootcamp.WebUI.Controllers
         }
 
         [HttpGet]
+        [Route("category/update/{id:int}")]
         public ActionResult Update(int id)
         {
             return View("Update", _categoryService.Find(id));
         }
         [HttpPost]
+        [Route("category/update/{id:int}")]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)] //ckeditör ile kayıt eklerken Request.form hatası almamak için kullanılır.
         public ActionResult Update(Category category)

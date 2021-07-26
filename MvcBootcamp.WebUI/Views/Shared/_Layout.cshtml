@@ -27,7 +27,6 @@
     @RenderSection("SweetAlert", false)
 
 
-
 </head>
 
 <body>
@@ -42,7 +41,7 @@
                 <div class="fa fa-bars tooltips" style="color:white;" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
-            <a href="#" class="logo" style="color:whitesmoke;"><b>E-SÖZLÜK</b></a>
+            <a href="/" class="logo" style="color:white;"><b><span style="font-family:'Brush Script Std';color:#de5565;font-size:22px;">E</span> SÖZLÜK</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -53,8 +52,13 @@
 
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><button onclick="window.location.href='/giris'" class=" btn btn-danger btn-xs" style="margin-top:20px;margin-right:5px;"><i class="fa fa-sign-in icon-margin" style="font-size:12px;"></i>Giriş Yap</button></li>
-                    <li><button onclick="window.location.href='/kayit'" class=" btn btn-default btn-xs" style="margin-top:20px;"><i class="fa fa-user icon-margin" style="font-size:12px;"></i>Kayıt Ol</button></li>
+
+                    <li>
+                        <div class="regis">
+                            <a href="/giris">Giriş Yap</a>  &nbsp / &nbsp <a href="/kayit">Kayıt Ol</a>
+                        </div> 
+                    </li>
+                    @*<li><button onclick="window.location.href='/kayit'" class=" btn btn-default btn-xs" style="margin-top:20px;"><i class="fa fa-user icon-margin" style="font-size:12px;"></i>Kayıt Ol</button></li>*@
                 </ul>
             </div>
         </header>

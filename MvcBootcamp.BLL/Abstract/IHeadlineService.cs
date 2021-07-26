@@ -11,6 +11,10 @@ namespace MvcBootcamp.BLL.Abstract
     public interface IHeadlineService
     {
         List<Headline> GetList();
+        Headline Find(int id);
+        void Add(Headline headline);
+        void Update(Headline headline);
+        void Remove(Headline headline);
         List<HeadlineDetailDto> GetHeadlineDetails();
         void SetStatus(int id);
 

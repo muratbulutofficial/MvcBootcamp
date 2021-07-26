@@ -51,6 +51,40 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $(".btnRemoveHeadline").click(function () {
+        swal({
+            title: "Silmek istediğinize emin misiniz?",
+            text: "Bu işlem geri alınamaz!",
+            icon: "warning",
+            buttons: ["Vazgeç", "Evet,Sil"],
+            dangerMode: true,
+
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    var ID = $(this).attr('name');
+                    //Tıklanan ilgili linkin name özelliğindeki ID değerini çekiyoruz.
+                    // var x = $(this); seçilen satır değeri alınır.
+                    $.ajax({
+                        url: '/PanelHeadline/Remove/' + ID,//Ajax ile tetiklenecek ilgili adresi belirliyoruz.
+                        type: 'POST',
+                        dataType: 'json',
+                        success: function (data) {
+                            location.reload();
+                        }
+
+                    });
+                    //  x.parent('td').parent('tr').remove(); silenen satır tablodan silinir.
+
+                }
+            });
+
+    });
+});
+
+
+
 //status change Headline
 $(document).ready(function () {
     $('.btnStatusHeadline').click(function (event) {

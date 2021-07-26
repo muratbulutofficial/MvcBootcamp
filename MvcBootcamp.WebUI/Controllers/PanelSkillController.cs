@@ -18,16 +18,19 @@ namespace MvcBootcamp.WebUI.Controllers
         private ISkillService _skillService;
 
         // GET: PanelSkill
+        [Route("skill")]
         public ActionResult GetList()
         {
             return View(_skillService.GetList());
         }
         [HttpGet]
+        [Route("skill/new")]
         public ActionResult Add()
         {
             return View();
         }
         [HttpPost]
+        [Route("skill/new")]
         [ValidateAntiForgeryToken]
         public ActionResult Add(Skill skill)
         {
@@ -35,6 +38,7 @@ namespace MvcBootcamp.WebUI.Controllers
             return RedirectToAction("GetList");
         }
         [HttpGet]
+        [Route("skill/update/{id:int}")]
         public ActionResult Update(int id)
         {
             var skill = _skillService.GetList().FirstOrDefault(x => x.Id.Equals(id));
@@ -47,7 +51,7 @@ namespace MvcBootcamp.WebUI.Controllers
             _skillService.Update(skill);
             return RedirectToAction("GetList");
         }
-
+        [Route("skill/remove/{id:int}")]
         public ActionResult Remove(Skill skill)
         {
             _skillService.Remove(skill);

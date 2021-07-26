@@ -32,6 +32,9 @@ namespace MvcBootcamp.BLL.DependencyResolvers.Ninject
             Bind<IHeadlineService>().To<HeadlineManager>().InSingletonScope();
             Bind<IHeadlineDal>().To<EfHeadlineDal>().InSingletonScope();
 
+            Bind<IUserLevelService>().To<UserLevelManager>().InSingletonScope();
+            Bind<IUserLevelDal>().To<EfUserLevelDal>().InSingletonScope();
+
             Bind<ISkillService>().To<SkillManager>().InSingletonScope();
             Bind<ISkillDal>().To<EfSkillDal>().InSingletonScope();
         }

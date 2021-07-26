@@ -32,8 +32,10 @@ namespace MvcBootcamp.WebUI.Controllers
 
             if (_authorService.Login(author))
             {
-                FormsAuthentication.SetAuthCookie(author.Nickname, false);
-                Session.Add("ActiveUser", author.Nickname);
+                var aut=_authorService.GetList().FirstOrDefault(x => x.EMail.Equals(author.EMail));
+                FormsAuthentication.SetAuthCookie(author.Nickname,false);
+                Session.Add("ActiveUser", aut.Id);
+                Session.Add("ActiveUserName", aut.Nickname);
                 return RedirectToRoute("panel");
             }
             else
@@ -56,7 +58,7 @@ namespace MvcBootcamp.WebUI.Controllers
             {
                 _authorService.Add(author);
                 FormsAuthentication.SetAuthCookie(author.Nickname, false);
-                Session.Add("ActiveUser", author.Nickname);
+                Session.Add("ActiveUser", author.Id);
                 return View();
             }
             catch(Exception exception)
