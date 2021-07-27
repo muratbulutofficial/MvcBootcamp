@@ -29,14 +29,17 @@ namespace MvcBootcamp.WebUI.Controllers
         [HttpPost]
         public ActionResult Login(Author author)
         {
+             
 
             if (_authorService.Login(author))
             {
                 var aut=_authorService.GetList().FirstOrDefault(x => x.EMail.Equals(author.EMail));
                 FormsAuthentication.SetAuthCookie(author.Nickname,false);
                 Session.Add("ActiveUser", aut.Id);
+                Session.Add("ActiveUserLevel", aut.UserLevelId);
                 Session.Add("ActiveUserName", aut.Nickname);
-                return RedirectToRoute("panel");
+                Session.Add("ActiveUserImage", aut.Image);
+                return Redirect("/");
             }
             else
             {
@@ -57,9 +60,13 @@ namespace MvcBootcamp.WebUI.Controllers
             try
             {
                 _authorService.Add(author);
+                var aut = _authorService.GetList().FirstOrDefault(x => x.EMail.Equals(author.EMail));
                 FormsAuthentication.SetAuthCookie(author.Nickname, false);
-                Session.Add("ActiveUser", author.Id);
-                return View();
+                Session.Add("ActiveUser", aut.Id);
+                Session.Add("ActiveUserLevel", aut.UserLevelId);
+                Session.Add("ActiveUserName", aut.Nickname);
+                Session.Add("ActiveUserImage", aut.Image);
+                return Redirect("/");
             }
             catch(Exception exception)
             {

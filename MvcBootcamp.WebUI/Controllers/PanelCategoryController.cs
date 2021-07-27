@@ -10,7 +10,6 @@ using System.Web.Mvc;
 
 namespace MvcBootcamp.WebUI.Controllers
 {
-    [Authorize]
     public class PanelCategoryController : Controller
     {
         public PanelCategoryController()
@@ -23,14 +22,22 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("category")]
         public ActionResult GetList()
         {
-            return View(_categoryService.GetList());
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View(_categoryService.GetList());
+            }
+            return Redirect("hata");
         }
         
         [HttpGet]
         [Route("category/new")]
         public ActionResult Add()
         {
-            return View();
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View();
+            }
+            return Redirect("hata");
         }
 
         [HttpPost]
@@ -56,7 +63,11 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("category/update/{id:int}")]
         public ActionResult Update(int id)
         {
-            return View("Update", _categoryService.Find(id));
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View("Update", _categoryService.Find(id));
+            }
+            return Redirect("hata");
         }
         [HttpPost]
         [Route("category/update/{id:int}")]

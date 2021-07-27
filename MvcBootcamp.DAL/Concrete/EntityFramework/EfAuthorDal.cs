@@ -42,11 +42,11 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
             using (MvcBootcampContext context = new MvcBootcampContext())
             {
 
-                var result = context.Authors.FirstOrDefault(x => x.EMail.Equals(author.EMail) && x.Password.Equals(author.Password) && x.UserLevelId.Equals(1));
+                var result = context.Authors.FirstOrDefault(x => x.EMail.Equals(author.EMail) && x.Password.Equals(author.Password));
 
                 if (result != null)
                 {
-                    if (result.EMail.Equals(author.EMail) && result.Password.Equals(author.Password) && result.UserLevelId.Equals(1))
+                    if (result.EMail.Equals(author.EMail) && result.Password.Equals(author.Password))
                         return true;
                     else
                         return false;

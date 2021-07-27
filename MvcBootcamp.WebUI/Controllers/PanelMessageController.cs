@@ -19,7 +19,13 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("message")]
         public ActionResult GetList()
         {
-            return View();
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View();
+
+            }
+            return Redirect("hata");
+            
         
         }
         public PartialViewResult MessageList()
@@ -34,13 +40,18 @@ namespace MvcBootcamp.WebUI.Controllers
             return PartialView(_messageService.GetList().Where(x=>x.isRead==false).ToList());
 
         }
-        
+        [Route("message/read/{id:int}")]
         public ActionResult Read(int id)
         {
-            var result = _messageService.Find(id);
-            if (result.isRead == false)
-                _messageService.SetRead(result.Id);
-            return View("Read",result);
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                var result = _messageService.Find(id);
+                if (result.isRead == false)
+                    _messageService.SetRead(result.Id);
+                return View("Read", result);
+            }
+            return Redirect("hata");
+            
         }
     }
 }

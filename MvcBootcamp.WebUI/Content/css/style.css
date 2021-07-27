@@ -15,7 +15,6 @@ body {
     clear: both;
 }
 .regis {
-    border: 1px solid white;
     margin-top: 15px;
     color: white;
     background: #de5565;
@@ -32,6 +31,44 @@ body {
         color:#f2f2f2;
     }
 
+
+.page_404 {
+    padding: 40px 0;
+    background: #fff;
+    font-family: 'Arvo', serif;
+}
+
+    .page_404 img {
+        width: 100%;
+    }
+
+.four_zero_four_bg {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+}
+
+
+    .four_zero_four_bg h1 {
+        font-size: 80px;
+    }
+
+    .four_zero_four_bg h3 {
+        font-size: 80px;
+    }
+
+.link_404 {
+    color: #fff !important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.contant_box_404 {
+    margin-top: -50px;
+}
+
 .right {
     position: relative;
     width: 100%;
@@ -39,6 +76,7 @@ body {
     float: right;
     margin-top:20px;
     background-color: #ffffff;
+    padding-top:10px;
 }
 
 article {

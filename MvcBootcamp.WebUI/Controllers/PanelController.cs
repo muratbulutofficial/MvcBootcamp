@@ -8,15 +8,19 @@ using System.Web.Mvc;
 
 namespace MvcBootcamp.WebUI.Controllers
 {
-    [Authorize]
     public class PanelController : Controller
     {
         // GET: Panel
         [Route("Panel")]
         public ActionResult Index()
         {
-            return View();
+            if (Session["ActiveUser"]!=null && Session["ActiveUserLevel"].ToString()=="1")
+            {
+                return View();
+            }
+            return Redirect("hata");
+
         }
-        
+
     }
 }

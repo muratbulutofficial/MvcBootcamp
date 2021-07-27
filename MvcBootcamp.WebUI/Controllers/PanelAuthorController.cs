@@ -9,7 +9,6 @@ using System.Web.Mvc;
 
 namespace MvcBootcamp.WebUI.Controllers
 {
-    [Authorize]
     public class PanelAuthorController : Controller
     {
         public PanelAuthorController()
@@ -23,43 +22,15 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("author")]
         public ActionResult GetList()
         {
-            return View(_authorService.GetAuthorDetail());
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View(_authorService.GetAuthorDetail());
+            }
+            return Redirect("hata");
         }
         [HttpGet]
         [Route("author/new")]
         public ActionResult Add()
-        {
-            List<SelectListItem> levels = (from i in _userLevelService.GetList()
-                                           select new SelectListItem
-                                           {
-                                            Text=i.LevelName,
-                                            Value=i.Id.ToString()
-                                           }).ToList();
-            ViewBag.UserLevel = levels;
-            return View();
-        }
-        [HttpPost]
-        [Route("author/new")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Add(Author author)
-        {
-            try
-            {
-                var level = _userLevelService.GetList().FirstOrDefault(x=>x.Id.Equals(author.UserLevelId));
-                author.UserLevelId = level.Id;
-                _authorService.Add(author);
-                return RedirectToAction("GetList");
-            }
-            catch (Exception exception)
-            {
-                ModelState.AddModelError("NickName", exception.Message.Substring(25));
-            }
-
-            return View();
-        }
-        [HttpGet]
-        [Route("author/update/{id:int}")]
-        public ActionResult Update(int id)
         {
             List<SelectListItem> levels = (from i in _userLevelService.GetList()
                                            select new SelectListItem
@@ -69,8 +40,54 @@ namespace MvcBootcamp.WebUI.Controllers
                                            }).ToList();
             ViewBag.UserLevel = levels;
 
-            var author = _authorService.GetList().FirstOrDefault(x => x.Id.Equals(id));
-            return View("Update",author);
+
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View();
+            }
+            return Redirect("hata");
+
+        }
+        [HttpPost]
+        [Route("author/new")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(Author author)
+        {
+            try
+            {
+
+                var level = _userLevelService.GetList().FirstOrDefault(x => x.Id.Equals(author.UserLevelId));
+                author.UserLevelId = level.Id;
+                _authorService.Add(author);
+                return RedirectToAction("GetList");
+            }
+            catch (Exception exception)
+            {
+                ModelState.AddModelError("Nickname", exception.Message.Substring(25));
+            }
+
+            return View();
+        }
+        [HttpGet]
+        [Route("author/update/{id:int}")]
+        public ActionResult Update(int id)
+        {
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                List<SelectListItem> levels = (from i in _userLevelService.GetList()
+                                               select new SelectListItem
+                                               {
+                                                   Text = i.LevelName,
+                                                   Value = i.Id.ToString()
+                                               }).ToList();
+                ViewBag.UserLevel = levels;
+
+                var author = _authorService.GetList().FirstOrDefault(x => x.Id.Equals(id));
+
+
+                return View("Update", author);
+            }
+            return Redirect("hata");
         }
         [HttpPost]
         [Route("author/update/{id:int}")]

@@ -21,13 +21,22 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("skill")]
         public ActionResult GetList()
         {
-            return View(_skillService.GetList());
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View(_skillService.GetList());
+            }
+            return Redirect("hata");
+          
         }
         [HttpGet]
         [Route("skill/new")]
         public ActionResult Add()
         {
-            return View();
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View();
+            }
+            return Redirect("hata");
         }
         [HttpPost]
         [Route("skill/new")]
@@ -41,8 +50,13 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("skill/update/{id:int}")]
         public ActionResult Update(int id)
         {
-            var skill = _skillService.GetList().FirstOrDefault(x => x.Id.Equals(id));
-            return View("Update",skill);
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                var skill = _skillService.GetList().FirstOrDefault(x => x.Id.Equals(id));
+                return View("Update", skill);
+            }
+            return Redirect("hata");
+            
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -54,8 +68,13 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("skill/remove/{id:int}")]
         public ActionResult Remove(Skill skill)
         {
-            _skillService.Remove(skill);
-            return RedirectToAction("GetList");
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                _skillService.Remove(skill);
+                return RedirectToAction("GetList");
+            }
+            return Redirect("hata");
+            
         }
     }
 }

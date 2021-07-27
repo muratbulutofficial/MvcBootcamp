@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HeadlineController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PanelAuthorController.cs" />
@@ -685,6 +686,7 @@
     <Content Include="Views\PanelHeadline\Add.cshtml" />
     <Content Include="Views\PanelHeadline\Update.cshtml" />
     <Content Include="Views\Author\Index.cshtml" />
+    <Content Include="Views\Error\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvcBootcamp.BLL\MvcBootcamp.BLL.csproj">

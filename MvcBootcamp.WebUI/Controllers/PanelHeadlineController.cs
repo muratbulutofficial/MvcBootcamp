@@ -22,21 +22,32 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("headline")]
         public ActionResult GetList()
         {
-            return View(_headlineService.GetHeadlineDetails());
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View(_headlineService.GetHeadlineDetails());
+
+            }
+            return Redirect("hata");
         }
         [HttpGet]
         [Route("headline/new")]
         public ActionResult Add()
         {
-            List<SelectListItem> cat = (from i in _categoryService.GetList()
-                                        select new SelectListItem
-                                        {
-                                            Text = i.Name,
-                                            Value = i.Id.ToString()
-                                        }).ToList();
-            ViewBag.Category = cat;
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                List<SelectListItem> cat = (from i in _categoryService.GetList()
+                                            select new SelectListItem
+                                            {
+                                                Text = i.Name,
+                                                Value = i.Id.ToString()
+                                            }).ToList();
+                ViewBag.Category = cat;
 
-            return View();
+                return View();
+
+            }
+            return Redirect("hata");
+            
         }
 
         [HttpPost]
@@ -64,17 +75,23 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("headline/update/{id:int}")]
         public ActionResult Update(int id)
         {
-            List<SelectListItem> cat = (from i in _categoryService.GetList()
-                                        select new SelectListItem
-                                        {
-                                            Text = i.Name,
-                                            Value = i.Id.ToString()
-                                        }).ToList();
-            ViewBag.Category = cat;
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                List<SelectListItem> cat = (from i in _categoryService.GetList()
+                                            select new SelectListItem
+                                            {
+                                                Text = i.Name,
+                                                Value = i.Id.ToString()
+                                            }).ToList();
+                ViewBag.Category = cat;
 
-            var headline = _headlineService.GetList().FirstOrDefault(x=>x.Id.Equals(id));
+                var headline = _headlineService.GetList().FirstOrDefault(x => x.Id.Equals(id));
 
-            return View("Update",headline);
+                return View("Update", headline);
+
+            }
+            return Redirect("hata");
+            
         }
 
         [HttpPost]

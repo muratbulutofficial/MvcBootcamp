@@ -22,13 +22,22 @@ namespace MvcBootcamp.WebUI.Controllers
         [Route("contents")]
         public ActionResult GetList()
         {
-            return View(_contentService.GetContentDetails());
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                return View(_contentService.GetContentDetails());
+            }
+            return Redirect("hata");
         }
         public ActionResult Writings(int id)
         {
-            var list = _contentService.GetContentDetails().Where(x => x.AuthorId.Equals(id)).ToList();
+            if (Session["ActiveUser"] != null && Session["ActiveUserLevel"].ToString() == "1")
+            {
+                var list = _contentService.GetContentDetails().Where(x => x.AuthorId.Equals(id)).ToList();
+
+                return View(list);
+            }
+            return Redirect("hata");
             
-            return View(list);
         }
     }
 }

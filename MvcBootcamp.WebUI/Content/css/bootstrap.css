@@ -3223,6 +3223,10 @@ tbody.collapse.in {
   left: 0;
   z-index: 990;
 }
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
 .pull-right > .dropdown-menu {
   right: 0;
   left: auto;
