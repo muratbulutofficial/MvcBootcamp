@@ -25,8 +25,7 @@
     <link href="~/Content/css/style.css" rel="stylesheet">
     <link href="~/Content/css/style-responsive.css" rel="stylesheet">
 
-    @RenderSection("HomePageCss", false)
-    @RenderSection("SweetAlert", false)
+  
 
 
 </head>
@@ -47,7 +46,18 @@
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
-                @Html.Action("GetList", "Category")
+                <form action="/search">
+                    <div class="wrap">
+                        <div class="search">
+
+                            <input type="text" name="s" class="searchTerm" placeholder="Başlık, #entry, &yazar">
+                            <button type="submit" class="searchButton">
+                                <i class="fa fa-search"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                </form>
                 <!--  notification end -->
             </div>
 
@@ -63,6 +73,7 @@
                         </li>
                     }
 
+
                     @if (Session["ActiveUser"] != null)
                     {
                         <li>
@@ -70,7 +81,7 @@
                                 <button type="button" style="background:#de5565;border:1px solid #de5565;" class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     @if (Session["ActiveUserImage"] != null)
                                     {
-                                        <img style="border-radius:50%;" src="~/Content/img/@Session["ActiveUserImage"].ToString()" width="24" height="24" />
+                                        <img style="border-radius:50%;" src="~/@Session["ActiveUserImage"].ToString()" width="24" height="24" />
 
                                     }
                                     else
@@ -80,7 +91,7 @@
                                     @Session["ActiveUserName"].ToString()
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right" style="font-size:12px;width:100%;min-width:150px;">
-                                    <a class="dropdown-item" href="#">Profilim</a>
+                                    <a class="dropdown-item" href="/profil">Profilim</a>
                                     <a class="dropdown-item" href="#">Şifre Değiştir</a>
                                     @if (Session["ActiveUserLevel"].ToString() == "1")
                                     {
@@ -151,10 +162,8 @@
     <script class="include" type="text/javascript" src="~/Scripts/jquery.dcjqaccordion.2.7.js"></script>
     <script src="~/Scripts/jquery.scrollTo.min.js"></script>
 
-    @RenderSection("HomePageScripts", false)
     @RenderSection("OperationScripts", false)
     @RenderSection("Ckeditor", false)
-    @RenderSection("Skill", false)
 
     <!--common script for all pages-->
     <script src="~/Scripts/common-scripts.js"></script>

@@ -1,0 +1,179 @@
+﻿@using MvcBootcamp.Entities.DTOs
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<ContentDetailDto>
+@{
+    ViewBag.Title = "Profiles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="profile-header">
+
+        <div class="profile-img">
+
+            @if (ViewBag.Image == null)
+            {
+                <img src="~/Content/img/bg-avatar.png" width="200" alt="Profile Image">
+            }
+            else
+            {
+                <img src="~/@ViewBag.Image" width="200" alt="Profile Image">
+            }
+
+
+        </div>
+        <div class="profile-nav-info">
+            <h3 class="user-name" style="text-transform:lowercase;">@ViewBag.Nickname</h3>
+            <div class="address">
+                <p id="state" class="state"><i class="fa fa-map-marker"></i></p>
+                <span id="country" class="country">Turkiye</span>
+            </div>
+
+        </div>
+        <div class="profile-option">
+            <button data-toggle="modal" data-target="#ImageUp" class="btn btn-print"><i class="fa fa-pencil icon-margin"></i>Resmi Düzenle</button>
+
+        </div>
+    </div>
+
+    <div class="main-bd">
+        <div class="left-side">
+            <div class="profile-side">
+
+                <div class="user-bio">
+                    <h3>Hakkımda</h3>
+                    <p class="bio">
+                        @ViewBag.About
+                    </p>
+                    <form action="/guncelle" method="post" class="crtform" style="display:none;">
+                        <textarea name="About" style="color:#333333;border:1px solid #d3d3d3;padding:5px;font-size:14px;width:100%;height:100px;border-radius:5px;">@ViewBag.About
+                        </textarea>
+                        <button class="btn btn-success" style="font-size:13px;">Kaydet</button>
+                        <button type="reset" class="btn btn-danger" style="font-size:13px;">Vazgeç</button>
+                    </form>
+                    <br />
+                    @*<p class="mobile-no"><i style="color:#808080" class="fa fa-phone"></i> +23470xxxxx700</p>
+                        <p class="user-mail"><i style="color:#808080" class="fa fa-envelope"></i> Brightisaac80@gmail.com</p>
+                        <p class="user-mail"><i style="color:#808080" class="fa fa-twitter"></i> Brightisaac80@gmail.com</p>*@
+                </div>
+                <div class="profile-btn">
+                    <button class="createbtn" id="Create-post"><i class="fa fa-pencil"></i> Düzenle</button>
+                </div>
+                @*<div class="user-rating">
+                        <h3 class="rating">4.5</h3>
+                        <div class="rate">
+                            <div class="star-outer">
+                                <div class="star-inner">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <span class="no-of-user-rate"><span>123</span>&nbsp;&nbsp;reviews</span>
+                        </div>-->
+
+                    </div>*@
+            </div>
+
+        </div>
+        <div class="right-side" style="width:100%;">
+
+            <div class="tabset" style="margin-top:2%;margin-left:2%;">
+                <!-- Tab 1 -->
+                <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+                <label for="tab1"><i class="fa fa-pencil icon-margin" style="margin-right:5px;"></i>Yazılarım</label>
+                <!-- Tab 2 -->
+                <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+                <label for="tab2"><i class="fa fa-cog icon-margin"></i> Ayarlar</label>
+
+                <div class="tab-panels">
+                    <section id="marzen" class="tab-panel">
+                        <div class="right" style="margin-top:0;">
+                            @foreach (var item in Model)
+                            {
+
+                                <h3 style="margin-left:5%;">
+                                    @item.HeadlineName
+                                    @if (Session["ActiveUser"] != null)
+                                    {
+                                        <a href="/duzenle-entry/@item.ContentId" class="btn btn-xs btn-theme03">
+                                            <i class="fa fa-edit icon-margin"></i>Düzenle
+                                        </a>
+                                    }
+
+                                </h3>
+                                <div class="clear"></div>
+                                <article>
+
+                                    <p>@item.ContentText</p>
+
+                                    <div class="tags">
+                                        <p class="date">@item.CreationDate.ToShortDateString() @item.CreationDate.ToShortTimeString() ~ <a href="/yazar/@item.AuthorName"> <span>@item.AuthorName</span></a></p>
+
+                                    </div>
+                                </article>
+                            }
+
+                            <div style="margin-left:5%; color:white;">
+                                @Html.PagedListPager((IPagedList)Model, p => Url.Action("Profiles", new { p }))
+                            </div>
+                        </div>
+                    </section>
+                    <section id="rauchbier" class="tab-panel">
+                        <h2>6B. Rauchbier</h2>
+                        <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
+                        <p><strong>History:</strong> A historical specialty of the city of Bamberg, in the Franconian region of Bavaria in Germany. Beechwood-smoked malt is used to make a Märzen-style amber lager. The smoke character of the malt varies by maltster; some breweries produce their own smoked malt (rauchmalz).</p>
+                    </section>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ImageUp" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <form action="/resim-yukle" method="post" enctype="multipart/form-data">
+
+                    <main class="main_full">
+                        <div class="containerup">
+                            <div class="panel">
+                                <div class="button_outer">
+                                    <div class="btn_upload">
+                                        <input type="file" id="upload_file" name="Image">
+                                        Resim Yükle
+                                    </div>
+                                    <div class="processing_bar"></div>
+                                    <div class="success_box"></div>
+                                </div>
+                            </div>
+                            <div class="error_msg"></div>
+                            <div class="uploaded_file_view" id="uploaded_view">
+                                <span class="file_remove">X</span>
+                            </div>
+                        </div>
+                    </main>
+                    <div class="modal-footer">
+                        <button type="submit" style="font-size:13px;display:none;" class="btn btnUp btn-success">Kaydet</button>
+                        <button type="button" style="font-size:13px;" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section OperationScripts{
+    <script src="~/Scripts/web-operation/web-operation.js"></script>
+}

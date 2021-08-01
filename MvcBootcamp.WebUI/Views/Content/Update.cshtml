@@ -1,0 +1,40 @@
+﻿@model MvcBootcamp.Entities.Concrete.Content
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right">
+    @using (Html.BeginForm("Update", "Content", FormMethod.Post))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <h3 style="margin-left:5%;padding-bottom:10px;padding-top:10px;">
+            @ViewBag.HeadlineName
+            <button type="submit" class="btn btn-success" style="float:right;margin-right:5%;margin-top:-5px;">
+                <i class="fa fa-save icon-margin"></i>
+                Kaydet
+            </button>
+        </h3>
+
+        <div style="width:100%;height:20px;background:#f2f2f2;"></div>
+
+        @Html.ValidationMessageFor(x => x.Text, "", new { @class = "text-danger" })
+        @Html.TextAreaFor(x => x.Text, new { @Id = "Text" })
+
+        @Html.HiddenFor(x => x.HeadlineId, new { @Value = ViewBag.HeadlineId })
+    }
+
+</div>
+
+@section Ckeditor{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+
+    <script type="text/javascript">
+        CKEDITOR.replace('Text');
+        CKFinder.setupCKEditor(null, '/ckfinder/');
+    </script>
+
+}
+

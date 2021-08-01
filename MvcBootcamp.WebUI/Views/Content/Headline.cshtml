@@ -1,5 +1,7 @@
 ﻿@using MvcBootcamp.Entities.DTOs
-@model List<ContentDetailDto>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<ContentDetailDto>
 
 @{
     ViewBag.Title = "Headline";
@@ -7,12 +9,21 @@
 }
 
 <div class="right">
+
+    <h3 style="margin-left:5%;">
+        @ViewBag.HeadlineName
+        @if (Session["ActiveUser"] != null)
+        {
+            <a href="/yeni-entry/@ViewBag.HeadlineSeoUrl" class="btn btn-xs btn-primary"><i class="fa fa-plus icon-margin"></i>Yazı ekle</a>
+        }
+    </h3>
+
     @foreach (var item in Model)
     {
-        <h3 style="margin-left:5%;">@item.HeadlineName</h3>
+
         <article>
 
-            <p>@item.ContentText</p>
+            <p>@Html.Raw(@item.ContentText)</p>
 
             <div class="tags">
                 <p class="date">
@@ -24,6 +35,10 @@
             </div>
         </article>
     }
+
+    <div style="margin-left:5%; color:white;">
+        @Html.PagedListPager((IPagedList)Model, p => Url.Action("Headline", new { p }))
+    </div>
 
 </div>
 

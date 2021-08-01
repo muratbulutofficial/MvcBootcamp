@@ -1,4 +1,6 @@
-﻿using MvcBootcamp.BLL.Abstract;
+﻿using Core.Aspects.PostSharp.Validation;
+using MvcBootcamp.BLL.Abstract;
+using MvcBootcamp.BLL.ValidationRules.FluentValidation;
 using MvcBootcamp.DAL.Concrete.EntityFramework;
 using MvcBootcamp.Entities.Concrete;
 using MvcBootcamp.Entities.DTOs;
@@ -16,6 +18,11 @@ namespace MvcBootcamp.BLL.Concrete
         public ContentManager(EfContentDal efContentDal)
         {
             _contentDal = efContentDal;
+        }
+        [ValidationAspect(typeof(ContentValidator))]
+        public void Add(Content content)
+        {
+            _contentDal.Add(content);
         }
 
         public List<ContentDetailDto> GetContentDetails()

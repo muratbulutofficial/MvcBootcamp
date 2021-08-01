@@ -1,7 +1,38 @@
-﻿
+﻿@using MvcBootcamp.Entities.DTOs
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<ContentDetailDto>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.Action("GetList","Content")
+<div class="right">
+    @foreach (var item in Model)
+    {
+
+        <h3 style="margin-left:5%;">
+            @item.HeadlineName
+            @if (Session["ActiveUser"] != null)
+            {
+                <a href="/yeni-entry/@item.HeadlineSeoUrl" class="btn btn-xs btn-primary"><i class="fa fa-plus icon-margin"></i>Yazı ekle</a>
+            }
+        </h3>
+
+
+        <article>
+
+            <p>@Html.Raw(@item.ContentText)</p>
+
+            <div class="tags">
+                <p class="date">@item.CreationDate.ToShortDateString() @item.CreationDate.ToShortTimeString() ~ <a href="/yazar/@item.AuthorName"> <span>@item.AuthorName</span></a></p>
+
+            </div>
+        </article>
+    }
+
+    <div style="margin-left:5%; color:white;">
+        @Html.PagedListPager((IPagedList)Model, p => Url.Action("Index", new { p }))
+    </div>
+
+</div>

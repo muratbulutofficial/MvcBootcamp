@@ -1,4 +1,50 @@
-﻿//Remove Category alert
+﻿$(document).ready(function () {
+    $('#Create-post').click(function () {
+        $('.profile-btn').css({ display: 'none' });
+        $('.bio').css({ display: 'none' });
+        $('.crtform').css({ display: 'block' });
+    });
+});
+
+$(document).ready(function () {
+    $('.btn-danger').click(function () {
+        $('.profile-btn').css({ display: 'block' });
+        $('.bio').css({ display: 'block' });
+        $('.crtform').css({ display: 'none' });
+    });
+});
+
+
+var btnUpload = $("#upload_file"),
+    btnOuter = $(".button_outer");
+btnUpload.on("change", function (e) {
+    var ext = btnUpload.val().split('.').pop().toLowerCase();
+    if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+        $(".error_msg").text("Lütfen, resim dosyası seçiniz...");
+    } else {
+        $(".error_msg").text("");
+        btnOuter.addClass("file_uploading");
+        setTimeout(function () {
+            btnOuter.addClass("file_uploaded");
+        }, 3000);
+        var uploadedFile = URL.createObjectURL(e.target.files[0]);
+        setTimeout(function () {
+            $("#uploaded_view").append('<img src="' + uploadedFile + '" />').addClass("show");
+            $('.btnUp').css({ display: 'block' });
+        }, 3500);
+    }
+});
+$(".file_remove").on("click", function (e) {
+    $("#uploaded_view").removeClass("show");
+    $("#uploaded_view").find("img").remove();
+    btnOuter.removeClass("file_uploading");
+    btnOuter.removeClass("file_uploaded");
+    $('.btnUp').css({ display: 'none' });
+});
+
+
+
+//Remove Category alert
 $(document).ready(function () {
     $(".btnRemoveCategory").click(function () {
         swal({
@@ -7,24 +53,24 @@ $(document).ready(function () {
             icon: "warning",
             buttons: ["Vazgeç", "Evet,Sil"],
             dangerMode: true,
-            
+
         })
             .then((willDelete) => {
                 if (willDelete) {
                     var ID = $(this).attr('name');
                     //Tıklanan ilgili linkin name özelliğindeki ID değerini çekiyoruz.
-                   // var x = $(this); seçilen satır değeri alınır.
+                    // var x = $(this); seçilen satır değeri alınır.
                     $.ajax({
                         url: '/PanelCategory/Remove/' + ID,//Ajax ile tetiklenecek ilgili adresi belirliyoruz.
                         type: 'POST',
                         dataType: 'json',
                         success: function (data) {
-                           location.reload();
+                            location.reload();
                         }
 
                     });
-                  //  x.parent('td').parent('tr').remove(); silenen satır tablodan silinir.
-                
+                    //  x.parent('td').parent('tr').remove(); silenen satır tablodan silinir.
+
                 }
             });
 
@@ -46,7 +92,7 @@ $(document).ready(function () {
                 alert('Hata oluştu.');
             }
         });
-       
+
 
     });
 });

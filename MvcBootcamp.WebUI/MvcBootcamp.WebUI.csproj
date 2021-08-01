@@ -55,6 +55,12 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -153,6 +159,8 @@
     <Content Include="Content\css\skill.css" />
     <Content Include="Content\img\favicon.ico" />
     <Content Include="Content\img\img1.jpg" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\uploads\photo-1528892952291-009c663ce843.jpg" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
@@ -581,7 +589,7 @@
     <Content Include="Scripts\fancybox\jquery.fancybox.css" />
     <Content Include="Scripts\fancybox\jquery.fancybox.js" />
     <Content Include="Scripts\form-component.js" />
-    <Content Include="Scripts\fullcalendar\bootstrap-fullcalendar.css" />
+    <Content Include="Content\css\bootstrap-fullcalendar.css" />
     <Content Include="Scripts\fullcalendar\fullcalendar.min.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
@@ -638,6 +646,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -679,7 +688,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\GetList.cshtml" />
     <Content Include="Views\Headline\GetList.cshtml" />
-    <Content Include="Views\Content\GetList.cshtml" />
     <Content Include="Views\Content\Headline.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Signup.cshtml" />
@@ -687,8 +695,15 @@
     <Content Include="Views\PanelHeadline\Update.cshtml" />
     <Content Include="Views\Author\Index.cshtml" />
     <Content Include="Views\Error\Page404.cshtml" />
+    <Content Include="Views\Author\Profiles.cshtml" />
+    <Content Include="Views\Content\Add.cshtml" />
+    <Content Include="Views\Content\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2346E453-CA9F-4FD4-AB06-9105F9907739}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcBootcamp.BLL\MvcBootcamp.BLL.csproj">
       <Project>{3c4216c3-b110-4023-b5fe-35f046e6b215}</Project>
       <Name>MvcBootcamp.BLL</Name>

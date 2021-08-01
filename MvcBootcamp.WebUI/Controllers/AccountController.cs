@@ -78,8 +78,9 @@ namespace MvcBootcamp.WebUI.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session.Abandon();
             Session.RemoveAll();
-            return RedirectToAction("Login");
+            return Redirect("/");
         }
     }
 }

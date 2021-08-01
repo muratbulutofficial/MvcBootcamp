@@ -55,7 +55,6 @@ namespace MvcBootcamp.WebUI.Controllers
         {
             try
             {
-
                 var level = _userLevelService.GetList().FirstOrDefault(x => x.Id.Equals(author.UserLevelId));
                 author.UserLevelId = level.Id;
                 _authorService.Add(author);

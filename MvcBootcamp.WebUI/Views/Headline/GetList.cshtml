@@ -2,6 +2,17 @@
 @model List<Headline>
 
 
+<form action="/search">
+    <div class="wrapper wrapper-search">
+        <div class="searchBar">
+            <input id="searchQueryInput" type="text" name="s" placeholder="Başlık, #entry, *yazar" />
+            <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+                <i class="fa fa-search" style="font-size:14px;"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
 @foreach (var item in Model)
 {
     if (item.isActive)

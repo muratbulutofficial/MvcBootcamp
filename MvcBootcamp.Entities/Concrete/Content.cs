@@ -9,6 +9,11 @@ namespace MvcBootcamp.Entities.Concrete
 {
     public class Content : IEntity
     {
+        public Content()
+        {
+            CreationDate = DateTime.Now;
+        }
+
         public int Id { get; set; }
         public int AuthorId { get; set; }
         public int HeadlineId { get; set; }
