@@ -9,9 +9,9 @@ namespace MvcBootcamp.Entities.Concrete
 {
     public class Skill:IEntity
     {
-        public byte Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public int Percent { get; set; }
-        public int Value { get; set; }
+        public string PerValue { get; set; }
+        public string Value { get; set; }
     }
 }

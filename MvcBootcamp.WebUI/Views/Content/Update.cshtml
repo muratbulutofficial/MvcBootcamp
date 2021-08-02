@@ -23,7 +23,7 @@
         @Html.ValidationMessageFor(x => x.Text, "", new { @class = "text-danger" })
         @Html.TextAreaFor(x => x.Text, new { @Id = "Text" })
 
-        @Html.HiddenFor(x => x.HeadlineId, new { @Value = ViewBag.HeadlineId })
+        @Html.HiddenFor(x => x.HeadlineId)
     }
 
 </div>

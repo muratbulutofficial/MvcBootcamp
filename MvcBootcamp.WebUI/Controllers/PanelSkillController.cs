@@ -43,8 +43,9 @@ namespace MvcBootcamp.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Add(Skill skill)
         {
-            _skillService.Add(skill);
-            return RedirectToAction("GetList");
+           
+                _skillService.Add(skill);
+                return RedirectToAction("GetList");
         }
         [HttpGet]
         [Route("skill/update/{id:int}")]
@@ -59,6 +60,7 @@ namespace MvcBootcamp.WebUI.Controllers
             
         }
         [HttpPost]
+        [Route("skill/update/{id:int}")]
         [ValidateAntiForgeryToken]
         public ActionResult Update(Skill skill)
         {

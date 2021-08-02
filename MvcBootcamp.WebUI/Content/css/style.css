@@ -15,6 +15,12 @@ body {
     clear: both;
 }
 
+#calendar {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+
 .containerup {
     max-width: 1100px;
     padding: 0 20px;
@@ -286,7 +292,7 @@ body {
 }
 
     .profile-nav-info h3 {
-        font-variant: small-caps;
+        font-variant:normal;
         font-size: 2rem;
         font-family: sans-serif;
         font-weight: bold;

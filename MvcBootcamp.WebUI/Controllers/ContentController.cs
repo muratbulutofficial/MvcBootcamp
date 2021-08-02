@@ -71,13 +71,37 @@ namespace MvcBootcamp.WebUI.Controllers
         {
             if (Session["ActiveUser"] != null)
             {
-                var content = _contentService.GetContentDetails().FirstOrDefault(x => x.ContentId.Equals(id));
-                ViewBag.HeadlineName = content.HeadlineName;
-                ViewBag.HeadlineId = content.HeadlineId;
+                var content = _contentService.GetList().FirstOrDefault(x => x.Id.Equals(id));
+                var cnt = _contentService.GetContentDetails().FirstOrDefault(x => x.ContentId.Equals(id));
+                ViewBag.HeadlineName = cnt.HeadlineName;
 
                 return View("Update",content);
             }
             return Redirect("hata");
+        }
+        [Route("duzenle-entry/{id:int}")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
+        public ActionResult Update(Content content)
+        {
+            
+                try
+                {
+                    content.AuthorId = Convert.ToInt32(Session["ActiveUser"].ToString());
+                    _contentService.Update(content);
+                    return Redirect("/profil");
+                }
+                catch (Exception exception)
+                {
+
+                    ModelState.AddModelError("Text", exception.Message.Substring(25));
+                }
+
+                var headline = _contentService.GetContentDetails().FirstOrDefault(x => x.HeadlineId.Equals(content.HeadlineId));
+                ViewBag.HeadlineName = headline.HeadlineName;
+
+                return View();
         }
     }
 }

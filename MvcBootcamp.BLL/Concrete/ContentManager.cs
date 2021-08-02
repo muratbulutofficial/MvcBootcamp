@@ -34,5 +34,10 @@ namespace MvcBootcamp.BLL.Concrete
         {
             return _contentDal.Getlist();
         }
+        [ValidationAspect(typeof(ContentValidator))]
+        public void Update(Content content)
+        {
+            _contentDal.Update(content);
+        }
     }
 }

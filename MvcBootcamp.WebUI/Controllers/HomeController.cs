@@ -40,7 +40,7 @@ namespace MvcBootcamp.WebUI.Controllers
             if (!string.IsNullOrEmpty(s))
             {
 
-                if (s.StartsWith("&"))
+                if (s.StartsWith("@"))
                 {
                     klm = s.Substring(1).Trim().ToLower();
                     var author = _authorService.GetList().FirstOrDefault(x => x.Nickname.Equals(klm));

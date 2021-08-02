@@ -13,7 +13,7 @@ namespace MvcBootcamp.BLL.ValidationRules.FluentValidation
         public ContentValidator()
         {
             RuleFor(x => x.Text).NotEmpty().WithMessage("İçerik giriniz.");
-            RuleFor(x => x.Text).MaximumLength(500).WithMessage("İçerik için max. 500 karakter içermelidir.");
+            RuleFor(x => x.Text).MaximumLength(5000).WithMessage("İçerik için max. 5000 karakter içermelidir.");
         }
     }
 }

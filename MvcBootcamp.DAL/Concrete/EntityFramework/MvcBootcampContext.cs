@@ -36,7 +36,7 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
             modelBuilder.Entity<Category>().Property(c => c.SeoUrl).HasMaxLength(150).IsRequired();
             modelBuilder.Entity<Category>().Property(c => c.Description).HasMaxLength(100).IsOptional();
 
-            modelBuilder.Entity<Content>().Property(c => c.Text).HasMaxLength(1000).IsRequired();
+            modelBuilder.Entity<Content>().Property(c => c.Text).HasMaxLength(5000).IsRequired();
 
             modelBuilder.Entity<Headline>().Property(c => c.Text).HasMaxLength(150).IsRequired();
             modelBuilder.Entity<Headline>().Property(c => c.SeoUrl).HasMaxLength(300).IsRequired();
@@ -50,8 +50,10 @@ namespace MvcBootcamp.DAL.Concrete.EntityFramework
             modelBuilder.Entity<Message>().Property(c => c.Text).HasMaxLength(500).IsRequired();
 
             modelBuilder.Entity<Skill>().Property(c => c.Name).HasMaxLength(100).IsRequired();
-            modelBuilder.Entity<Skill>().Property(c => c.Percent).IsRequired();
-            modelBuilder.Entity<Skill>().Property(c => c.Value).IsRequired();
+            modelBuilder.Entity<Skill>().Property(c => c.PerValue).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<Skill>().Property(c => c.Value).HasMaxLength(50).IsRequired();
+            
+            
 
         }
     }

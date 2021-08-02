@@ -26,7 +26,7 @@
 
         </div>
         <div class="profile-nav-info">
-            <h3 class="user-name" style="text-transform:lowercase;">@ViewBag.Nickname</h3>
+            <h3 class="user-name">@ViewBag.Nickname</h3>
             <div class="address">
                 <p id="state" class="state"><i class="fa fa-map-marker"></i></p>
                 <span id="country" class="country">Turkiye</span>
@@ -84,53 +84,39 @@
         <div class="right-side" style="width:100%;">
 
             <div class="tabset" style="margin-top:2%;margin-left:2%;">
-                <!-- Tab 1 -->
-                <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
-                <label for="tab1"><i class="fa fa-pencil icon-margin" style="margin-right:5px;"></i>Yazılarım</label>
-                <!-- Tab 2 -->
-                <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
-                <label for="tab2"><i class="fa fa-cog icon-margin"></i> Ayarlar</label>
+               
 
-                <div class="tab-panels">
-                    <section id="marzen" class="tab-panel">
-                        <div class="right" style="margin-top:0;">
-                            @foreach (var item in Model)
-                            {
+                    <div class="right" style="margin-top:0;">
+                        @foreach (var item in Model)
+                        {
 
-                                <h3 style="margin-left:5%;">
-                                    @item.HeadlineName
-                                    @if (Session["ActiveUser"] != null)
-                                    {
-                                        <a href="/duzenle-entry/@item.ContentId" class="btn btn-xs btn-theme03">
-                                            <i class="fa fa-edit icon-margin"></i>Düzenle
-                                        </a>
-                                    }
+                            <h3 style="margin-left:5%;">
+                                @item.HeadlineName
+                                @if (Session["ActiveUser"] != null)
+                                {
+                                    <a href="/duzenle-entry/@item.ContentId" class="btn btn-xs btn-primary">
+                                        <i class="fa fa-edit icon-margin"></i>Düzenle
+                                    </a>
+                                }
 
-                                </h3>
-                                <div class="clear"></div>
-                                <article>
+                            </h3>
+                            <div class="clear"></div>
+                            <article>
 
-                                    <p>@item.ContentText</p>
+                                @Html.Raw(@item.ContentText)
 
-                                    <div class="tags">
-                                        <p class="date">@item.CreationDate.ToShortDateString() @item.CreationDate.ToShortTimeString() ~ <a href="/yazar/@item.AuthorName"> <span>@item.AuthorName</span></a></p>
+                                <div class="tags">
+                                    <p class="date">@item.CreationDate.ToShortDateString() @item.CreationDate.ToShortTimeString() ~ <a href="/yazar/@item.AuthorName"> <span>@item.AuthorName</span></a></p>
 
-                                    </div>
-                                </article>
-                            }
+                                </div>
+                            </article>
+                        }
 
-                            <div style="margin-left:5%; color:white;">
-                                @Html.PagedListPager((IPagedList)Model, p => Url.Action("Profiles", new { p }))
-                            </div>
+                        <div style="margin-left:5%; color:white;">
+                            @Html.PagedListPager((IPagedList)Model, p => Url.Action("Profiles", new { p }))
                         </div>
-                    </section>
-                    <section id="rauchbier" class="tab-panel">
-                        <h2>6B. Rauchbier</h2>
-                        <p><strong>Overall Impression:</strong>  An elegant, malty German amber lager with a balanced, complementary beechwood smoke character. Toasty-rich malt in aroma and flavor, restrained bitterness, low to high smoke flavor, clean fermentation profile, and an attenuated finish are characteristic.</p>
-                        <p><strong>History:</strong> A historical specialty of the city of Bamberg, in the Franconian region of Bavaria in Germany. Beechwood-smoked malt is used to make a Märzen-style amber lager. The smoke character of the malt varies by maltster; some breweries produce their own smoked malt (rauchmalz).</p>
-                    </section>
+                    </div>
 
-                </div>
 
             </div>
         </div>

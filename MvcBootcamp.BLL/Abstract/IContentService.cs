@@ -13,5 +13,6 @@ namespace MvcBootcamp.BLL.Abstract
         List<Content> GetList();
         List<ContentDetailDto> GetContentDetails();
         void Add(Content content);
+        void Update(Content content);
     }
 }
