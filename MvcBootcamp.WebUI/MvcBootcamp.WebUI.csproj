@@ -582,7 +582,6 @@
     <Content Include="Scripts\bootstrap-inputmask\bootstrap-inputmask.min.js" />
     <Content Include="Scripts\bootstrap-switch.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\calendar-conf-events.js" />
     <Content Include="Scripts\chart-master\Chart.js" />
     <Content Include="Scripts\chartjs-conf.js" />
     <Content Include="Scripts\common-scripts.js" />
