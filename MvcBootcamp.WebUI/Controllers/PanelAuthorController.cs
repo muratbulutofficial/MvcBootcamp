@@ -97,6 +97,8 @@ namespace MvcBootcamp.WebUI.Controllers
             {
                 var level = _userLevelService.GetList().FirstOrDefault(x => x.Id.Equals(author.UserLevelId));
                 author.UserLevelId = level.Id;
+                var aut = _authorService.GetList().FirstOrDefault(x=>x.Id.Equals(author.Id));
+                author.Image = aut.Image;
                 _authorService.Update(author);
                 return RedirectToAction("GetList");
             }
